@@ -43,6 +43,8 @@ Hello, world!
 
 Official docs for [hello](http://docs.cs50.net/problems/hello/hello.html) on CS50.
 
+My implementation of [hello](PSET1/hello.c).
+
 
 ###  Water
 
@@ -60,6 +62,8 @@ Bottles: 120
 ```
 
 Official docs for [water](http://docs.cs50.net/problems/water/water.html) on CS50.
+
+My implementation of [water](PSET1/water.c).
 
 ###  Mario, less comfortable
 
@@ -85,6 +89,8 @@ Height: 3
 
 Official docs for [mario_less](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
 
+My implementation of [mario_less](PSET1/mario.c).
+
 ###  Mario, more comfortable
 
 A program that prints out a double half-pyramid of a specified height:
@@ -100,6 +106,9 @@ Height: 4
 
 Official docs for [mario_more](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
 
+
+My implementation of [mario_more](PSET1/mario_more.c).
+
 ###  Greedy, less comfortable
 
 A program that calculates the minimum number of coins required to give a user change:
@@ -113,6 +122,8 @@ O hai! How much change is owed?
 
 Official docs for [greedy_less](http://docs.cs50.net/problems/greedy/greedy.html) on CS50.
 
+My implementation of [greedy](PSET1/greedy.c).
+
 ### Credit, more comfortable
 
 A program that determines whether a provided credit card number is valid according to [Luhn’s algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm):
@@ -124,6 +135,8 @@ AMEX
 ```
 
 Official docs for [greedy_more](http://docs.cs50.net/problems/credit/credit.html) on CS50.
+
+My implementation of [credit](PSET1/credit.c).
 
 
 ## Problem Set 2
@@ -140,6 +153,8 @@ RAB
 
 Official docs for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
 
+My implementation of [initials_less](PSET1/initials.c).
+
 ###  Initials, more comfortable
 
 A program that, given a person’s name, prints a person’s initials, while ignoring additional whitespace:
@@ -151,6 +166,8 @@ RAB
 ```
 
 Official docs for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
+
+My implementation of [initials_more](PSET1/initials_more.c).
 
 ### Caesar, less comfortable
 
