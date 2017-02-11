@@ -2,28 +2,49 @@
 
 ## Problem Set 1
 
-#### Hello [x]
+- [x] - Hello
+
 http://docs.cs50.net/problems/hello/hello.html
-#### Water [x]
+
+- [x] -  Water
+
 http://docs.cs50.net/problems/water/water.html
-#### Mario, less comfortable [x]
+
+- [x] -  Mario, less comfortable
+
 http://docs.cs50.net/problems/mario/less/mario.html
-#### Mario, more comfortable [x]
+
+- [x] -  Mario, more comfortable
+
 http://docs.cs50.net/problems/mario/more/mario.html
-#### Greedy, less comfortable [x]
+
+- [x] -  Greedy, less comfortable
+
 http://docs.cs50.net/problems/greedy/greedy.html
-#### Credit, more comfortable [x]
+
+- [x] - Credit, more comfortable
+
 http://docs.cs50.net/problems/credit/credit.html
+
 
 ## Problem Set 2
 
-#### Initials, less comfortable [x]
+- [x] -  Initials, less comfortable
+
 http://docs.cs50.net/problems/initials/less/initials.html
-#### Initials, more comfortable [x]
+
+- [x] -  Initials, more comfortable
+
 http://docs.cs50.net/problems/initials/more/initials.html
-#### Caesar, less comfortable []
+
+- [ ] -  Caesar, less comfortable
+
 http://docs.cs50.net/problems/caesar/caesar.html
-#### Vigenere, less comfortable []
+
+- [ ] -  Vigenere, less comfortable
+
 http://docs.cs50.net/problems/vigenere/vigenere.html
-#### Crack, more comfortable []
+
+- [ ] -  Crack, more comfortable
+
 http://docs.cs50.net/problems/crack/crack.html
