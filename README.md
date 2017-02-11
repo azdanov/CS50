@@ -43,7 +43,7 @@ Hello, world!
 
 Official docs for [hello](http://docs.cs50.net/problems/hello/hello.html) on CS50.
 
-My implementation of[hello](PSET1/hello.c).
+My implementation of [hello](PSET1/hello.c).
 
 
 ###  Water
