@@ -2,7 +2,8 @@
 
 ## Problem Set 1
 
-#### Hello [x]
+#### Hello
+[x]
 http://docs.cs50.net/problems/hello/hello.html
 #### Water [x]
 http://docs.cs50.net/problems/water/water.html
