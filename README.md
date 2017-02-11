@@ -1,5 +1,35 @@
 # CS50 -  2017 - Problem Sets
 
+## Table of Content
+1. **[Problem Set 1](#problem-set-1)**
+    * **[Hello](#hello)**
+    * **[Water](#water)**
+    * **[Mario, less comfortable](#mario-less-comfortable)**
+    * **[Mario, more comfortable](#mario-more-comfortable)**
+    * **[Greedy, less comfortable](#greedy-less-comfortable)**
+    * **[Credit, more comfortable](#greedy-more-comfortable)**
+
+2. **[Problem Set 2](#problem-set-2)**
+    * **[Initials, less comfortable](#initials-less-comfortable)**
+    * **[Initials, more comfortable](#initials-more-comfortable)**
+    * **[Caesar, less comfortable](#caesar-less-comfortable)**
+    * **[Vigenere, less comfortable](#vigenere-less-comfortable)**
+    * **[Crack, more comfortable](#crack-more-comfortable)**
+
+3. **[Problem Set 3](#problem-set3)**
+
+4. **[Problem Set 4](#problem-set4)**
+
+5. **[Problem Set 5](#problem-set5)**
+
+6. **[Problem Set 6](#problem-set6)**
+
+7. **[Problem Set 7](#problem-set7)**
+
+8. **[Problem Set 8](#problem-set8)**
+
+9. **[Final Project](#final-project)**
+
 ## Problem Set 1
 
 ### Hello
@@ -11,7 +41,7 @@ $ ./hello
 Hello, world!
 ```
 
-[hello](http://docs.cs50.net/problems/hello/hello.html)
+Official docs for [hello](http://docs.cs50.net/problems/hello/hello.html) on CS50.
 
 
 ###  Water
@@ -29,7 +59,7 @@ Minutes: 10
 Bottles: 120
 ```
 
-[water](http://docs.cs50.net/problems/water/water.html)
+Official docs for [water](http://docs.cs50.net/problems/water/water.html) on CS50.
 
 ###  Mario, less comfortable
 
@@ -53,7 +83,7 @@ Height: 3
 ####
 ```
 
-[marrio_less](http://docs.cs50.net/problems/mario/less/mario.html)
+Official docs for [mario_less](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
 
 ###  Mario, more comfortable
 
@@ -68,7 +98,7 @@ Height: 4
 ####  ####
 ```
 
-[mario_more](http://docs.cs50.net/problems/mario/more/mario.html)
+Official docs for [mario_more](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
 
 ###  Greedy, less comfortable
 
@@ -81,7 +111,7 @@ O hai! How much change is owed?
 4
 ```
 
-[greedy_less](http://docs.cs50.net/problems/greedy/greedy.html)
+Official docs for [greedy_less](http://docs.cs50.net/problems/greedy/greedy.html) on CS50.
 
 ### Credit, more comfortable
 
@@ -93,7 +123,7 @@ Number: 378282246310005
 AMEX
 ```
 
-[greedy_more](http://docs.cs50.net/problems/credit/credit.html)
+Official docs for [greedy_more](http://docs.cs50.net/problems/credit/credit.html) on CS50.
 
 
 ## Problem Set 2
@@ -108,7 +138,7 @@ Regulus Arcturus Black
 RAB
 ```
 
-[initials_less](http://docs.cs50.net/problems/initials/less/initials.html)
+Official docs for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
 
 ###  Initials, more comfortable
 
@@ -120,7 +150,7 @@ $ ./initials
 RAB
 ```
 
-[initials_more](http://docs.cs50.net/problems/initials/more/initials.html)
+Official docs for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
 
 ### Caesar, less comfortable
 
@@ -132,7 +162,7 @@ plaintext:  HELLO
 ciphertext: URYYB
 ```
 
-[caesar](http://docs.cs50.net/problems/caesar/caesar.html)
+Official docs for [caesar](http://docs.cs50.net/problems/caesar/caesar.html) on CS50.
 
 ###  Vigenere, less comfortable
 
@@ -144,7 +174,7 @@ plaintext:  HELLO
 ciphertext: HFNLP
 ```
 
-[vigenere](http://docs.cs50.net/problems/vigenere/vigenere.html)
+Official docs for [vigenere](http://docs.cs50.net/problems/vigenere/vigenere.html) on CS50.
 
 ###  Crack, more comfortable
 
@@ -155,7 +185,7 @@ $ ./crack 50fkUxYHbnXGw
 rofl
 ```
 
-[crack](http://docs.cs50.net/problems/crack/crack.html)
+Official docs for [crack](http://docs.cs50.net/problems/crack/crack.html) on CS50.
 
 ## Problem Set 3
 `Coming soon`
