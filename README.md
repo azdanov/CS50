@@ -153,7 +153,7 @@ RAB
 
 Official docs for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
 
-My implementation of [initials_less](PSET1/initials.c).
+My implementation of [initials_less](PSET2/initials.c).
 
 ###  Initials, more comfortable
 
@@ -167,7 +167,7 @@ RAB
 
 Official docs for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
 
-My implementation of [initials_more](PSET1/initials_more.c).
+My implementation of [initials_more](PSET2/initials_more.c).
 
 ### Caesar, less comfortable
 
