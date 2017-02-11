@@ -16,17 +16,17 @@
     * **[Vigenere, less comfortable](#vigenere-less-comfortable)**
     * **[Crack, more comfortable](#crack-more-comfortable)**
 
-3. **[Problem Set 3](#problem-set3)**
+3. **[Problem Set 3](#problem-set-3)**
 
-4. **[Problem Set 4](#problem-set4)**
+4. **[Problem Set 4](#problem-set-4)**
 
-5. **[Problem Set 5](#problem-set5)**
+5. **[Problem Set 5](#problem-set-5)**
 
-6. **[Problem Set 6](#problem-set6)**
+6. **[Problem Set 6](#problem-set-6)**
 
-7. **[Problem Set 7](#problem-set7)**
+7. **[Problem Set 7](#problem-set-7)**
 
-8. **[Problem Set 8](#problem-set8)**
+8. **[Problem Set 8](#problem-set-8)**
 
 9. **[Final Project](#final-project)**
 
