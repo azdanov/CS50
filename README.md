@@ -1,5 +1,7 @@
 # CS50 -  2017 - Problem Sets
 
+![](http://i.imgur.com/DN8KfOe.jpg "This is CS50")
+
 ## Table of Content
 1. **[Problem Set 1](#problem-set-1)**
     * **[Hello](#hello)**
