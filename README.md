@@ -44,7 +44,7 @@ $ ./hello
 Hello, world!
 ```
 
-Official docs for [hello](http://docs.cs50.net/problems/hello/hello.html) on CS50.
+Official specifications for [hello](http://docs.cs50.net/problems/hello/hello.html) on CS50.
 
 My implementation of [hello](PSET1/hello.c).
 
@@ -64,7 +64,7 @@ Minutes: 10
 Bottles: 120
 ```
 
-Official docs for [water](http://docs.cs50.net/problems/water/water.html) on CS50.
+Official specifications for [water](http://docs.cs50.net/problems/water/water.html) on CS50.
 
 My implementation of [water](PSET1/water.c).
 
@@ -90,7 +90,7 @@ Height: 3
 ####
 ```
 
-Official docs for [mario_less](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
+Official specifications for [mario_less](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
 
 My implementation of [mario_less](PSET1/mario.c).
 
@@ -107,7 +107,7 @@ Height: 4
 ####  ####
 ```
 
-Official docs for [mario_more](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
+Official specifications for [mario_more](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
 
 
 My implementation of [mario_more](PSET1/mario_more.c).
@@ -123,7 +123,7 @@ O hai! How much change is owed?
 4
 ```
 
-Official docs for [greedy_less](http://docs.cs50.net/problems/greedy/greedy.html) on CS50.
+Official specifications for [greedy_less](http://docs.cs50.net/problems/greedy/greedy.html) on CS50.
 
 My implementation of [greedy](PSET1/greedy.c).
 
@@ -137,7 +137,7 @@ Number: 378282246310005
 AMEX
 ```
 
-Official docs for [greedy_more](http://docs.cs50.net/problems/credit/credit.html) on CS50.
+Official specifications for [greedy_more](http://docs.cs50.net/problems/credit/credit.html) on CS50.
 
 My implementation of [credit](PSET1/credit.c).
 
@@ -154,7 +154,7 @@ Regulus Arcturus Black
 RAB
 ```
 
-Official docs for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
+Official specifications for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
 
 My implementation of [initials_less](PSET2/initials.c).
 
@@ -168,7 +168,7 @@ $ ./initials
 RAB
 ```
 
-Official docs for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
+Official specifications for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
 
 My implementation of [initials_more](PSET2/initials_more.c).
 
@@ -182,7 +182,7 @@ plaintext:  HELLO
 ciphertext: URYYB
 ```
 
-Official docs for [caesar](http://docs.cs50.net/problems/caesar/caesar.html) on CS50.
+Official specifications for [caesar](http://docs.cs50.net/problems/caesar/caesar.html) on CS50.
 
 ###  Vigenere, less comfortable
 
@@ -194,7 +194,7 @@ plaintext:  HELLO
 ciphertext: HFNLP
 ```
 
-Official docs for [vigenere](http://docs.cs50.net/problems/vigenere/vigenere.html) on CS50.
+Official specifications for [vigenere](http://docs.cs50.net/problems/vigenere/vigenere.html) on CS50.
 
 ###  Crack, more comfortable
 
@@ -205,7 +205,7 @@ $ ./crack 50fkUxYHbnXGw
 rofl
 ```
 
-Official docs for [crack](http://docs.cs50.net/problems/crack/crack.html) on CS50.
+Official specifications for [crack](http://docs.cs50.net/problems/crack/crack.html) on CS50.
 
 ## Problem Set 3
 `Coming soon`
