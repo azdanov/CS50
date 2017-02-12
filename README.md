@@ -4,34 +4,36 @@
 
 
 ## Table of Content
-1. **[Problem Set 1](#problem-set-1)**
-    * **[Hello](#hello)**
-    * **[Water](#water)**
-    * **[Mario, less comfortable](#mario-less-comfortable)**
-    * **[Mario, more comfortable](#mario-more-comfortable)**
-    * **[Greedy, less comfortable](#greedy-less-comfortable)**
-    * **[Credit, more comfortable](#greedy-more-comfortable)**
+1.  **[Problem Set 1](#problem-set-1)**
+    *   **[Hello](#hello)**
+    *   **[Water](#water)**
+    *   **[Mario, less comfortable](#mario-less-comfortable)**
+    *   **[Mario, more comfortable](#mario-more-comfortable)**
+    *   **[Greedy, less comfortable](#greedy-less-comfortable)**
+    *   **[Credit, more comfortable](#greedy-more-comfortable)**
 
-2. **[Problem Set 2](#problem-set-2)**
-    * **[Initials, less comfortable](#initials-less-comfortable)**
-    * **[Initials, more comfortable](#initials-more-comfortable)**
-    * **[Caesar, less comfortable](#caesar-less-comfortable)**
-    * **[Vigenere, less comfortable](#vigenere-less-comfortable)**
-    * **[Crack, more comfortable](#crack-more-comfortable)**
 
-3. **[Problem Set 3](#problem-set-3)**
+2.  **[Problem Set 2](#problem-set-2)**
+    *   **[Initials, less comfortable](#initials-less-comfortable)**
+    *   **[Initials, more comfortable](#initials-more-comfortable)**
+    *   **[Caesar, less comfortable](#caesar-less-comfortable)**
+    *   **[Vigenere, less comfortable](#vigenere-less-comfortable)**
+    *   **[Crack, more comfortable](#crack-more-comfortable)**
 
-4. **[Problem Set 4](#problem-set-4)**
 
-5. **[Problem Set 5](#problem-set-5)**
+3.  **[Problem Set 3](#problem-set-3)**
 
-6. **[Problem Set 6](#problem-set-6)**
+4.  **[Problem Set 4](#problem-set-4)**
 
-7. **[Problem Set 7](#problem-set-7)**
+5.  **[Problem Set 5](#problem-set-5)**
 
-8. **[Problem Set 8](#problem-set-8)**
+6.  **[Problem Set 6](#problem-set-6)**
 
-9. **[Final Project](#final-project)**
+7.  **[Problem Set 7](#problem-set-7)**
+
+8.  **[Problem Set 8](#problem-set-8)**
+
+9.  **[Final Project](#final-project)**
 
 ## Problem Set 1
 
@@ -49,7 +51,7 @@ Official specifications for [hello](http://docs.cs50.net/problems/hello/hello.ht
 My implementation of [hello](PSET1/hello.c).
 
 
-###  Water
+### Water
 
 A program that reports a user’s water usage, converting minutes spent in the shower to bottles of drinking water:
 
@@ -68,7 +70,7 @@ Official specifications for [water](http://docs.cs50.net/problems/water/water.ht
 
 My implementation of [water](PSET1/water.c).
 
-###  Mario, less comfortable
+### Mario, less comfortable
 
 A program that prints out a half-pyramid of a specified height:
 
@@ -94,7 +96,7 @@ Official specifications for [mario_less](http://docs.cs50.net/problems/mario/les
 
 My implementation of [mario_less](PSET1/mario.c).
 
-###  Mario, more comfortable
+### Mario, more comfortable
 
 A program that prints out a double half-pyramid of a specified height:
 
@@ -112,7 +114,7 @@ Official specifications for [mario_more](http://docs.cs50.net/problems/mario/mor
 
 My implementation of [mario_more](PSET1/mario_more.c).
 
-###  Greedy, less comfortable
+### Greedy, less comfortable
 
 A program that calculates the minimum number of coins required to give a user change:
 
@@ -144,7 +146,7 @@ My implementation of [credit](PSET1/credit.c).
 
 ## Problem Set 2
 
-###  Initials, less comfortable
+### Initials, less comfortable
 
 A program that, given a person’s name, prints a person’s initials:
 
@@ -158,7 +160,7 @@ Official specifications for [initials_less](http://docs.cs50.net/problems/initia
 
 My implementation of [initials_less](PSET2/initials.c).
 
-###  Initials, more comfortable
+### Initials, more comfortable
 
 A program that, given a person’s name, prints a person’s initials, while ignoring additional whitespace:
 
@@ -174,7 +176,7 @@ My implementation of [initials_more](PSET2/initials_more.c).
 
 ### Caesar, less comfortable
 
-a program that encrypts messages using Caesar’s cipher:
+A program that encrypts messages using Caesar’s cipher:
 
 ```
 $ ./caesar 13
@@ -184,7 +186,7 @@ ciphertext: URYYB
 
 Official specifications for [caesar](http://docs.cs50.net/problems/caesar/caesar.html) on CS50.
 
-###  Vigenere, less comfortable
+### Vigenere, less comfortable
 
 A program that encrypts messages using Vigenère’s cipher:
 
@@ -196,7 +198,7 @@ ciphertext: HFNLP
 
 Official specifications for [vigenere](http://docs.cs50.net/problems/vigenere/vigenere.html) on CS50.
 
-###  Crack, more comfortable
+### Crack, more comfortable
 
 A program that cracks passwords:
 
