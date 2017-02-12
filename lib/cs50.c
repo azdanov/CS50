@@ -64,8 +64,8 @@
  * https://gcc.gnu.org/onlinedocs/cpp/Standard-Predefined-Macros.html.
  */
 #undef eprintf
-void eprintf(const char *file, int line, const char *format, ...)
-{
+
+void eprintf(const char *file, int line, const char *format, ...) {
     // print caller's file name and line number
     fprintf(stderr, "%s:%i: ", file, line);
 
@@ -88,27 +88,24 @@ void eprintf(const char *file, int line, const char *format, ...)
  * Leading and trailing whitespace is ignored. If line can't be read,
  * returns CHAR_MAX.
  */
-char get_char(void)
-{
+char get_char(void) {
     // try to get a char from user
-    while (true)
-    {
+    while (true) {
         // get line of text, returning CHAR_MAX on failure
         string line = get_string();
-        if (line == NULL)
-        {
+        if (line == NULL) {
             return CHAR_MAX;
         }
 
         // return a char if only a char was provided
         char c, d;
-        if (sscanf(line, "%c%c", &c, &d) == 1)
-        {
+        if (sscanf(line, "%c%c", &c, &d) == 1) {
             return c;
         }
         printf("Retry: ");
     }
 }
+
 char (*GetChar)(void) = get_char;
 
 /**
@@ -117,29 +114,23 @@ char (*GetChar)(void) = get_char;
  * double or if value would cause underflow or overflow, user is
  * prompted to retry. If line can't be read, returns DBL_MAX.
  */
-double get_double(void)
-{
+double get_double(void) {
     // try to get a double from user
-    while (true)
-    {
+    while (true) {
         // get line of text, returning DBL_MAX on failure
         string line = get_string();
-        if (line == NULL)
-        {
+        if (line == NULL) {
             return DBL_MAX;
         }
 
         // return a double if only a double was provided
-        if (strlen(line) > 0 && !isspace(line[0]))
-        {
+        if (strlen(line) > 0 && !isspace(line[0])) {
             char *tail;
             errno = 0;
             double d = strtod(line, &tail);
-            if (errno == 0 && *tail == '\0' && isfinite(d) != 0 && d < DBL_MAX)
-            {
+            if (errno == 0 && *tail == '\0' && isfinite(d) != 0 && d < DBL_MAX) {
                 // disallow hexadecimal and exponents
-                if (strcspn(line, "XxEePp") == strlen(line))
-                {
+                if (strcspn(line, "XxEePp") == strlen(line)) {
                     return d;
                 }
             }
@@ -147,6 +138,7 @@ double get_double(void)
         printf("Retry: ");
     }
 }
+
 double (*GetDouble)(void) = get_double;
 
 /**
@@ -155,29 +147,23 @@ double (*GetDouble)(void) = get_double;
  * or if value would cause underflow or overflow, user is prompted to
  * retry. If line can't be read, returns FLT_MAX.
  */
-float get_float(void)
-{
+float get_float(void) {
     // try to get a float from user
-    while (true)
-    {
+    while (true) {
         // get line of text, returning FLT_MAX on failure
         string line = get_string();
-        if (line == NULL)
-        {
+        if (line == NULL) {
             return FLT_MAX;
         }
 
         // return a float if only a float was provided
-        if (strlen(line) > 0 && !isspace(line[0]))
-        {
+        if (strlen(line) > 0 && !isspace(line[0])) {
             char *tail;
             errno = 0;
             float f = strtof(line, &tail);
-            if (errno == 0 && *tail == '\0' && isfinite(f) != 0 && f < FLT_MAX)
-            {
+            if (errno == 0 && *tail == '\0' && isfinite(f) != 0 && f < FLT_MAX) {
                 // disallow hexadecimal and exponents
-                if (strcspn(line, "XxEePp") == strlen(line))
-                {
+                if (strcspn(line, "XxEePp") == strlen(line)) {
                     return f;
                 }
             }
@@ -185,6 +171,7 @@ float get_float(void)
         printf("Retry: ");
     }
 }
+
 float (*GetFloat)(void) = get_float;
 
 /**
@@ -193,32 +180,28 @@ float (*GetFloat)(void) = get_float;
  * such an int or if value would cause underflow or overflow, user is
  * prompted to retry. If line can't be read, returns INT_MAX.
  */
-int get_int(void)
-{
+int get_int(void) {
     // try to get an int from user
-    while (true)
-    {
+    while (true) {
         // get line of text, returning INT_MAX on failure
         string line = get_string();
-        if (line == NULL)
-        {
+        if (line == NULL) {
             return INT_MAX;
         }
 
         // return an int if only an int (in range) was provided
-        if (strlen(line) > 0 && !isspace(line[0]))
-        {
+        if (strlen(line) > 0 && !isspace(line[0])) {
             char *tail;
             errno = 0;
             long n = strtol(line, &tail, 10);
-            if (errno == 0 && *tail == '\0' && n >= INT_MIN && n < INT_MAX)
-            {
+            if (errno == 0 && *tail == '\0' && n >= INT_MIN && n < INT_MAX) {
                 return n;
             }
         }
         printf("Retry: ");
     }
 }
+
 int (*GetInt)(void) = get_int;
 
 /**
@@ -227,32 +210,28 @@ int (*GetInt)(void) = get_int;
  * represent such a long long or if value would cause underflow or overflow,
  * user is prompted to retry. If line can't be read, returns LLONG_MAX.
  */
-long long get_long_long(void)
-{
+long long get_long_long(void) {
     // try to get a long long from user
-    while (true)
-    {
+    while (true) {
         // get line of text, returning LLONG_MAX on failure
         string line = get_string();
-        if (line == NULL)
-        {
+        if (line == NULL) {
             return LLONG_MAX;
         }
 
         // return a long long if only a long long (in range) was provided
-        if (strlen(line) > 0 && !isspace(line[0]))
-        {
+        if (strlen(line) > 0 && !isspace(line[0])) {
             char *tail;
             errno = 0;
             long long n = strtoll(line, &tail, 10);
-            if (errno == 0 && *tail == '\0' && n < LLONG_MAX)
-            {
+            if (errno == 0 && *tail == '\0' && n < LLONG_MAX) {
                 return n;
             }
         }
         printf("Retry: ");
     }
 }
+
 long long (*GetLongLong)(void) = get_long_long;
 
 /**
@@ -273,11 +252,9 @@ static string *strings = NULL;
  * error or no input whatsoever (i.e., just EOF). Stores string
  * on heap, but library's destructor frees memory on program's exit.
  */
-string get_string(void)
-{
+string get_string(void) {
     // check whether we have room for another string
-    if (allocations == SIZE_MAX)
-    {
+    if (allocations == SIZE_MAX) {
         return NULL;
     }
 
@@ -294,34 +271,24 @@ string get_string(void)
     int c;
 
     // iteratively get characters from standard input, checking for CR (Mac OS), LF (Linux), and CRLF (Windows)
-    while ((c = fgetc(stdin)) != '\r' && c != '\n' && c != EOF)
-    {
+    while ((c = fgetc(stdin)) != '\r' && c != '\n' && c != EOF) {
         // grow buffer if necessary
-        if (size + 1 > capacity)
-        {
+        if (size + 1 > capacity) {
             // initialize capacity to 16 (as reasonable for most inputs) and double thereafter
-            if (capacity == 0)
-            {
+            if (capacity == 0) {
                 capacity = 16;
-            }
-            else if (capacity <= (SIZE_MAX / 2))
-            {
+            } else if (capacity <= (SIZE_MAX / 2)) {
                 capacity *= 2;
-            }
-            else if (capacity < SIZE_MAX)
-            {
+            } else if (capacity < SIZE_MAX) {
                 capacity = SIZE_MAX;
-            }
-            else
-            {
+            } else {
                 free(buffer);
                 return NULL;
             }
 
             // extend buffer's capacity
             string temp = realloc(buffer, capacity);
-            if (temp == NULL)
-            {
+            if (temp == NULL) {
                 free(buffer);
                 return NULL;
             }
@@ -333,17 +300,14 @@ string get_string(void)
     }
 
     // check whether user provided input
-    if (size == 0 && c == EOF)
-    {
+    if (size == 0 && c == EOF) {
         return NULL;
     }
 
     // if last character read was CR, try to read LF as well
-    if (c == '\r' && (c = fgetc(stdin)) != '\n')
-    {
+    if (c == '\r' && (c = fgetc(stdin)) != '\n') {
         // return NULL if character can't be pushed back onto standard input
-        if (c != EOF && ungetc(c, stdin) == EOF)
-        {
+        if (c != EOF && ungetc(c, stdin) == EOF) {
             free(buffer);
             return NULL;
         }
@@ -351,8 +315,7 @@ string get_string(void)
 
     // minimize buffer
     string s = realloc(buffer, size + 1);
-    if (s == NULL)
-    {
+    if (s == NULL) {
         free(buffer);
         return NULL;
     }
@@ -362,8 +325,7 @@ string get_string(void)
 
     // resize array so as to append string
     string *tmp = realloc(strings, sizeof(string) * (allocations + 1));
-    if (tmp == NULL)
-    {
+    if (tmp == NULL) {
         free(s);
         return NULL;
     }
@@ -376,8 +338,8 @@ string get_string(void)
     // return string
     return s;
 }
-string GetString(void)
-{
+
+string GetString(void) {
     // growable buffer for characters
     string buffer = NULL;
 
@@ -391,34 +353,24 @@ string GetString(void)
     int c;
 
     // iteratively get characters from standard input, checking for CR (Mac OS), LF (Linux), and CRLF (Windows)
-    while ((c = fgetc(stdin)) != '\r' && c != '\n' && c != EOF)
-    {
+    while ((c = fgetc(stdin)) != '\r' && c != '\n' && c != EOF) {
         // grow buffer if necessary
-        if (size + 1 > capacity)
-        {
+        if (size + 1 > capacity) {
             // initialize capacity to 16 (as reasonable for most inputs) and double thereafter
-            if (capacity == 0)
-            {
+            if (capacity == 0) {
                 capacity = 16;
-            }
-            else if (capacity <= (SIZE_MAX / 2))
-            {
+            } else if (capacity <= (SIZE_MAX / 2)) {
                 capacity *= 2;
-            }
-            else if (capacity < SIZE_MAX)
-            {
+            } else if (capacity < SIZE_MAX) {
                 capacity = SIZE_MAX;
-            }
-            else
-            {
+            } else {
                 free(buffer);
                 return NULL;
             }
 
             // extend buffer's capacity
             string temp = realloc(buffer, capacity);
-            if (temp == NULL)
-            {
+            if (temp == NULL) {
                 free(buffer);
                 return NULL;
             }
@@ -430,17 +382,14 @@ string GetString(void)
     }
 
     // check whether user provided input
-    if (size == 0 && c == EOF)
-    {
+    if (size == 0 && c == EOF) {
         return NULL;
     }
 
     // if last character read was CR, try to read LF as well
-    if (c == '\r' && (c = fgetc(stdin)) != '\n')
-    {
+    if (c == '\r' && (c = fgetc(stdin)) != '\n') {
         // return NULL if character can't be pushed back onto standard input
-        if (c != EOF && ungetc(c, stdin) == EOF)
-        {
+        if (c != EOF && ungetc(c, stdin) == EOF) {
             free(buffer);
             return NULL;
         }
@@ -448,8 +397,7 @@ string GetString(void)
 
     // minimize buffer
     string s = realloc(buffer, size + 1);
-    if (s == NULL)
-    {
+    if (s == NULL) {
         free(buffer);
         return NULL;
     }
@@ -465,8 +413,7 @@ string GetString(void)
  * Called automatically before execution enters main.
  */
 __attribute__((constructor))
-static void setup(void)
-{
+static void setup(void) {
     // disable buffering for standard output
     setvbuf(stdout, NULL, _IONBF, 0);
 }
@@ -475,13 +422,10 @@ static void setup(void)
  * Called automatically after execution exits main.
  */
 __attribute__((destructor))
-static void teardown(void)
-{
+static void teardown(void) {
     // free library's strings
-    if (strings != NULL)
-    {
-        for (size_t i = 0; i < allocations; i++)
-        {
+    if (strings != NULL) {
+        for (size_t i = 0; i < allocations; i++) {
             free(strings[i]);
         }
         free(strings);

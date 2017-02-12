@@ -78,6 +78,7 @@ void eprintf(const char *file, int line, const char *format, ...) __attribute__(
  * returns CHAR_MAX.
  */
 char get_char(void);
+
 extern char (*GetChar)(void);
 
 /**
@@ -87,6 +88,7 @@ extern char (*GetChar)(void);
  * prompted to retry. If line can't be read, returns DBL_MAX.
  */
 double get_double(void);
+
 extern double (*GetDouble)(void);
 
 /**
@@ -96,6 +98,7 @@ extern double (*GetDouble)(void);
  * retry. If line can't be read, returns FLT_MAX.
  */
 float get_float(void);
+
 extern float (*GetFloat)(void);
 
 /**
@@ -105,6 +108,7 @@ extern float (*GetFloat)(void);
  * prompted to retry. If line can't be read, returns INT_MAX.
  */
 int get_int(void);
+
 extern int (*GetInt)(void);
 
 /**
@@ -114,6 +118,7 @@ extern int (*GetInt)(void);
  * user is prompted to retry. If line can't be read, returns LLONG_MAX.
  */
 long long get_long_long(void);
+
 extern long long (*GetLongLong)(void);
 
 /**
@@ -125,6 +130,7 @@ extern long long (*GetLongLong)(void);
  * on heap, but library's destructor frees memory on program's exit.
  */
 string get_string(void);
+
 string GetString(void);
 
 #endif
