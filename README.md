@@ -4,16 +4,19 @@
 
 
 ## Table of Content
-1.  **[Problem Set 1](#problem-set-1)**
+
+*  **[Dependencies](#dependencies)**
+
+*  **[Problem Set 1](#problem-set-1)**
     *   **[Hello](#hello)**
     *   **[Water](#water)**
     *   **[Mario, less comfortable](#mario-less-comfortable)**
     *   **[Mario, more comfortable](#mario-more-comfortable)**
     *   **[Greedy, less comfortable](#greedy-less-comfortable)**
-    *   **[Credit, more comfortable](#greedy-more-comfortable)**
+    *   **[Credit, more comfortable](#credit-more-comfortable)**
 
 
-2.  **[Problem Set 2](#problem-set-2)**
+*  **[Problem Set 2](#problem-set-2)**
     *   **[Initials, less comfortable](#initials-less-comfortable)**
     *   **[Initials, more comfortable](#initials-more-comfortable)**
     *   **[Caesar, less comfortable](#caesar-less-comfortable)**
@@ -21,19 +24,23 @@
     *   **[Crack, more comfortable](#crack-more-comfortable)**
 
 
-3.  **[Problem Set 3](#problem-set-3)**
+*  **[Problem Set 3](#problem-set-3)**
 
-4.  **[Problem Set 4](#problem-set-4)**
+*  **[Problem Set 4](#problem-set-4)**
 
-5.  **[Problem Set 5](#problem-set-5)**
+*  **[Problem Set 5](#problem-set-5)**
 
-6.  **[Problem Set 6](#problem-set-6)**
+*  **[Problem Set 6](#problem-set-6)**
 
-7.  **[Problem Set 7](#problem-set-7)**
+*  **[Problem Set 7](#problem-set-7)**
 
-8.  **[Problem Set 8](#problem-set-8)**
+*  **[Problem Set 8](#problem-set-8)**
 
-9.  **[Final Project](#final-project)**
+*  **[Final Project](#final-project)**
+
+## Dependencies
+
+[CS50 Library for C](https://github.com/cs50/cs50)
 
 ## Problem Set 1
 
