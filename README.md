@@ -47,7 +47,7 @@ Feel free to contribute in any way you see fit, all feedback is welcome.
 
 ## Dependencies
 
-[Latest CS50 Library](https://github.com/cs50/cs50) for C on github.
+[Latest CS50 Library](https://github.com/cs50/cs50) for C.
 
 [How to install](https://manual.cs50.net/library/) _(Might contain outdated library files)_
 
