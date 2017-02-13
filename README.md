@@ -209,6 +209,8 @@ ciphertext: HFNLP
 
 Official specifications for [vigenere](http://docs.cs50.net/problems/vigenere/vigenere.html) on CS50.
 
+My implementation of [vigenere](PSET2/vigenere.c).
+
 ### Crack, more comfortable
 
 A program that cracks passwords:
