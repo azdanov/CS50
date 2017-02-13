@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+// constant
 #define ALPHA_NUM 26
 
 int main(int argc, char *argv[]) {
@@ -23,16 +24,19 @@ int main(int argc, char *argv[]) {
 
     // encode plaintext
     size_t text_len = strlen(plaintext);
-    char ciphertext[text_len + 1];
+    char ciphertext[text_len + 1]; // + 1 for '\0'
 
     for (int i = 0; i < text_len; i++) {
         if (isalpha(plaintext[i])) {
             if (isupper(plaintext[i])) {
+                // Uppercase shift
                 ciphertext[i] = (char) (((plaintext[i] + key - 'A') % ALPHA_NUM) + 'A');
             } else {
+                // Lowercase shift
                 ciphertext[i] = (char) (((plaintext[i] + key - 'a') % ALPHA_NUM) + 'a');
             }
         } else {
+            // Skip non alpha
             ciphertext[i] = plaintext[i];
         }
     }
