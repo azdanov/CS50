@@ -40,7 +40,9 @@
 
 ## Dependencies
 
-[CS50 Library for C](https://github.com/cs50/cs50)
+[CS50 Library for C.](https://github.com/cs50/cs50)
+
+[How to install.](https://manual.cs50.net/library/)
 
 ## Problem Set 1
 
