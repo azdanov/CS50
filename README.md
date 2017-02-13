@@ -5,8 +5,8 @@
 
 ## Table of Content
 
+*  **[Intro](#intro)**
 *  **[Dependencies](#dependencies)**
-
 *  **[Problem Set 1](#problem-set-1)**
     *   **[Hello](#hello)**
     *   **[Water](#water)**
@@ -38,11 +38,18 @@
 
 *  **[Final Project](#final-project)**
 
+## Intro
+This is a _work in progress_ repository containing solutions for CS50 problem sets.
+
+I mainly use this as personal training grounds to try out different things and learn while doing it.
+
+Feel free to contribute in any way you see fit, all feedback is welcome.
+
 ## Dependencies
 
-[CS50 Library for C.](https://github.com/cs50/cs50)
+[Latest CS50 Library](https://github.com/cs50/cs50) for C on github.
 
-[How to install.](https://manual.cs50.net/library/)
+[How to install](https://manual.cs50.net/library/) _(Might contain outdated library files)_
 
 ## Problem Set 1
 
@@ -242,3 +249,7 @@ Official specifications for [crack](http://docs.cs50.net/problems/crack/crack.ht
 
 ## Final Project
 `Coming soon`
+
+## License
+
+This project is Unlicensed - see the [LICENSE.md](LICENSE.md) file for details
