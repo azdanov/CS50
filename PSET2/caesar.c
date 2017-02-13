@@ -19,7 +19,6 @@ int main(int argc, char *argv[]) {
     // get plaintext from user
     printf("plaintext: ");
     string plaintext = get_string();
-    printf("\n");
 
 
     // encode plaintext
