@@ -229,6 +229,8 @@ rofl
 
 Official specifications for [crack](http://docs.cs50.net/problems/crack/crack.html) on CS50.
 
+My implementation of [crack](PSET2/crack.c).
+
 ## Problem Set 3
 `Coming soon`
 
