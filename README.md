@@ -25,6 +25,9 @@
 
 
 *  **[Problem Set 3](#problem-set-3)**
+    *   **[Find, less comfortable](#find-less-comfortable)**
+    *   **[Find, more comfortable](#find-more-comfortable)**
+    *   **[Game of Fifteen](#game-of-fifteen)**
 
 *  **[Problem Set 4](#problem-set-4)**
 
@@ -234,7 +237,47 @@ My implementation of [crack](PSET2/crack.c).
 A helpful website to  [visualize the algorithm](http://www.pythontutor.com/visualize.html#code=%23include%20%3Cstdio.h%3E%0A%23include%20%3Cstring.h%3E%0A%0A%23define%20LEN%205%20//%20max%20password%20length%0A%0Avoid%20increment_guess%28char%20str%5B%5D,%20int%20pos%29%3B%0A%0Aint%20main%28void%29%20%7B%0A%0A%20%20%20%20char%20*string%20%3D%20%22rofl%22%3B%0A%20%20%20%20char%20guess%5BLEN%5D%20%3D%20%7B'%5C0'%7D%3B%0A%20%20%20%20do%20%7B%0A%20%20%20%20%20%20%20%20if%20%28strcmp%28guess,%20string%29%20%3D%3D%200%29%20%7B%20//%20compare%20both%20hashes%0A%20%20%20%20%20%20%20%20%20%20%20%20printf%28%22%25s%22,%20guess%29%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20return%200%3B%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%20%20%20%20%20%20increment_guess%28guess,%200%29%3B%0A%20%20%20%20%7D%20while%20%28guess%5BLEN%20-%201%5D%20%3D%3D%20'%5C0'%29%3B%0A%0A%7D%0A%0Avoid%20increment_guess%28char%20str%5B%5D,%20int%20pos%29%20%7B%0A%20%20%20%20if%20%28str%5Bpos%5D%20%3D%3D%20'%5C0'%29%20%7B%20%20%20%20%20%20%20//%20start%20with%20upper%20'A'%0A%20%20%20%20%20%20%20%20str%5Bpos%5D%20%3D%20'A'%3B%0A%20%20%20%20%7D%20else%20if%20%28str%5Bpos%5D%20%3D%3D%20'Z'%29%20%7B%20//%20skip%20to%20lower%20'a'%0A%20%20%20%20%20%20%20%20str%5Bpos%5D%20%3D%20'a'%3B%0A%20%20%20%20%7D%20else%20if%20%28str%5Bpos%5D%20%3D%3D%20'z'%29%20%7B%20//%20next%20position%20when%20end%20is%20reached%0A%20%20%20%20%20%20%20%20str%5Bpos%5D%20%3D%20'a'%3B%0A%20%20%20%20%20%20%20%20increment_guess%28str,%20pos%20%2B%201%29%3B%0A%20%20%20%20%7D%20else%20%7B%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20else%20increment%20char%0A%20%20%20%20%20%20%20%20str%5Bpos%5D%2B%2B%3B%0A%20%20%20%20%7D%0A%7D&cumulative=false&curInstr=722&heapPrimitives=false&mode=display&origin=opt-frontend.js&py=c&rawInputLstJSON=%5B%5D&textReferences=false).
 
 ## Problem Set 3
-`Coming soon`
+
+### Find, less comfortable
+
+A program that finds a number among numbers:
+
+```
+$ ./generate 1000 | ./find 42
+Didn't find needle in haystack.
+```
+
+Official specifications for [find, less comfortable](http://docs.cs50.net/problems/find/less/find.html) on CS50.
+
+### Find, more comfortable
+
+A program that finds a number among numbers:
+
+```
+$ ./generate 1000 | ./find 42
+Didn't find needle in haystack.
+```
+
+Official specifications for [find, more comfortableack](http://docs.cs50.net/problems/find/more/find.html) on CS50.
+
+### Game of Fifteen
+
+Game of Fifteen:
+
+```
+$ ./fifteen 3
+WELCOME TO GAME OF FIFTEEN
+
+8  7  6
+
+5  4  3
+
+2  1  _
+
+Tile to move:
+```
+
+Official specifications for [game of fifteen](http://docs.cs50.net/problems/fifteen/fifteen.html) on CS50.
 
 ## Problem Set 4
 `Coming soon`
