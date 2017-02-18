@@ -7,6 +7,9 @@
 
 *  **[Intro](#intro)**
 *  **[Dependencies](#dependencies)**
+*  **[Problem Set 0](#problem-set-0)**
+    *   **[Scratch](#scratch)**
+    
 *  **[Problem Set 1](#problem-set-1)**
     *   **[Hello](#hello)**
     *   **[Water](#water)**
@@ -15,14 +18,12 @@
     *   **[Greedy, less comfortable](#greedy-less-comfortable)**
     *   **[Credit, more comfortable](#credit-more-comfortable)**
 
-
 *  **[Problem Set 2](#problem-set-2)**
     *   **[Initials, less comfortable](#initials-less-comfortable)**
     *   **[Initials, more comfortable](#initials-more-comfortable)**
     *   **[Caesar, less comfortable](#caesar-less-comfortable)**
     *   **[Vigenere, less comfortable](#vigenere-less-comfortable)**
     *   **[Crack, more comfortable](#crack-more-comfortable)**
-
 
 *  **[Problem Set 3](#problem-set-3)**
     *   **[Find, less comfortable](#find-less-comfortable)**
@@ -53,6 +54,16 @@ Feel free to contribute in any way you see fit, all feedback is welcome.
 [Latest CS50 Library](https://github.com/cs50/cs50) for C.
 
 [How to install](https://manual.cs50.net/library/) _(Might contain outdated library files)_
+
+## Problem Set 0
+
+### Scratch
+
+As per [specifications](http://docs.cs50.net/2017/x/psets/0/pset0.html#tl-dr) make a program in [scratch](https://scratch.mit.edu):
+
+![](https://cdn2.scratch.mit.edu/get_image/project/104489209_282x210.png)
+
+My implementation of a simple [game](https://scratch.mit.edu/projects/104489209/).
 
 ## Problem Set 1
 
