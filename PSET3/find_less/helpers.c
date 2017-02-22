@@ -33,7 +33,20 @@ bool search(int value, int values[], int n) {
 /**
  * Sorts array of n values.
  */
+ void swap(int *values, int j) {
+    int temp = values[j - 1];
+    values[j - 1] = values[j];
+    values[j] = temp;
+}
 void sort(int values[], int n) {
-    // TODO: implement an O(n^2) sorting algorithm
+    int j;
+    for (int i = 1; i < n; ++i) {
+        j = i;
+        while (j > 0 && values[j - 1] > values[j]) {
+            swap(values, j);
+            --j;
+        }
+    }
     return;
 }
+
