@@ -5,6 +5,7 @@
  */
  
 #include <cs50.h>
+#define LIMIT 65536
 
 /**
  * Returns true if value is in array of n values, else false.
