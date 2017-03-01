@@ -156,7 +156,21 @@ void greet(void)
  */
 void init(void)
 {
-    // TODO
+    int currentNum = d*d - 1;
+
+    for (int i = 0; i < d; ++i) {
+        for (int j = 0; j < d; ++j) {
+            board[i][j] = currentNum;
+            currentNum--;
+        }
+    }
+
+    if(d % 2 == 0) {
+        // Swap last two numbers
+        int temp = board[d - 1][d - 2];
+        board[d - 1][d - 2] = board[d - 1][d - 3];
+        board[d - 1][d - 3] = temp;
+    }
 }
 
 /**
