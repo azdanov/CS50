@@ -311,7 +311,7 @@ $ ./whodunit clue.bmp verdict.bmp
 
 Official specifications for [whodunit](http://docs.cs50.net/problems/whodunit/whodunit.html) on CS50.
 
-My implementation of [whodunit](bmp/whodunit.c).
+My implementation of [whodunit](PSET4/bmp/whodunit.c).
 
 
 ### Resize
@@ -324,7 +324,7 @@ $ ./resize 4 small.bmp large.bmp
 
 Official specifications for [Resize](http://docs.cs50.net/problems/resize/less/resize.html) on CS50.
 
-My implementation of [Resize](bmp/resize.c).
+My implementation of [Resize](PSET4/bmp/resize.c).
 
 ### Recover
 
@@ -336,7 +336,7 @@ $ ./recover card.raw
 
 Official specifications for [Recover](http://docs.cs50.net/problems/recover/recover.html) on CS50.
 
-My implementation of [Recover](jpg/recover.c).
+My implementation of [Recover](PSET4/jpg/recover.c).
 
 
 ## Problem Set 5
