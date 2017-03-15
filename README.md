@@ -1,5 +1,4 @@
-# CS50 -  2017 - Problem Sets [![unlicense](https://img.shields.io/badge/un-license-green.svg?style=flat)](http://unlicense.org)
-
+# CS50 -  2017 - Problem Sets ![unlicense]()
 [![](http://i.imgur.com/DN8KfOe.jpg "This is CS50")](https://cs50.harvard.edu)
 
 
@@ -31,6 +30,9 @@
     *   **[Game of Fifteen](#game-of-fifteen)**
 
 *  **[Problem Set 4](#problem-set-4)**
+    *   **[Whodunit](#whodunit)**
+    *   **[Resize](#resize)**
+    *   **[Recover](#recover)**
 
 *  **[Problem Set 5](#problem-set-5)**
 
@@ -260,6 +262,8 @@ Didn't find needle in haystack.
 
 Official specifications for [find, less comfortable](http://docs.cs50.net/problems/find/less/find.html) on CS50.
 
+My implementation of [crack](PSET3/find_less/).
+
 ### Find, more comfortable
 
 A program that finds a number among numbers:
@@ -270,6 +274,8 @@ Didn't find needle in haystack.
 ```
 
 Official specifications for [find, more comfortableack](http://docs.cs50.net/problems/find/more/find.html) on CS50.
+
+My implementation of [crack](PSET3/find_more).
 
 ### Game of Fifteen
 
@@ -290,8 +296,47 @@ Tile to move:
 
 Official specifications for [game of fifteen](http://docs.cs50.net/problems/fifteen/fifteen.html) on CS50.
 
+My implementation of [crack](PSET3/fifteen).
+
 ## Problem Set 4
-`Coming soon`
+
+### Whodunit
+
+A program that reveals a reveals a hidden message in a BMP:
+
+```
+$ ./whodunit clue.bmp verdict.bmp
+```
+
+Official specifications for [whodunit](http://docs.cs50.net/problems/whodunit/whodunit.html) on CS50.
+
+My implementation of [whodunit](bmp/whodunit.c).
+
+
+### Resize
+
+Implement a program that resizes BMPs:
+
+```
+$ ./resize 4 small.bmp large.bmp
+```
+
+Official specifications for [Resize](http://docs.cs50.net/problems/resize/less/resize.html) on CS50.
+
+My implementation of [Resize](bmp/resize.c).
+
+### Recover
+
+Implement a program that recovers JPEGs from a forensic image:
+
+```
+$ ./recover card.raw
+```
+
+Official specifications for [Recover](http://docs.cs50.net/problems/recover/recover.html) on CS50.
+
+My implementation of [Recover](jpg/recover.c).
+
 
 ## Problem Set 5
 `Coming soon`

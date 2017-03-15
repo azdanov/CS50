@@ -1,0 +1,24 @@
+0.  BMP  - 32bit format supports 4294967296 distinct colors.
+    JPEG - 24bit format supports 16777216 distinct colors.
+    PNG  - 24bit format supports 16777216 distinct colors.
+    GIF  - 8bit format supports 256 distinct colors.
+
+1.  GIF
+2.  Lossless compression permits recovery of all the compressed bits, where lossy permanently eliminates some information.
+3.  JPEG
+4.  File's "header" gets filled with zeroes while the body remains untouched.
+5.  Use special software to delete the said file which overwrites it with random patterns of 1 or 0. Or just incinerate the whole drive (fun!).
+6.  It's a header file that provides a set of typedefs for integers specifying exact width in bits. Also defines min and max allowable values for each type.
+7.  To ensure consistency between different platforms. E.g int can be 16 bit and 32 bit on some platforms.
+8.  BYTE = 1 byte, DWORD = 4 bytes, LONG = 4 bytes, WORD = 2 bytes, 
+9.  BM or 424D
+10. bfsize indicates the size of the bitmap file including all the headers, 
+    where bisize indicates the size of BITMAPINFOHEADER structure.
+11. It means that the image is saved as top-down with origin point in upper-left.
+12. biBitCount
+13. It might return NULL if a file can't be createad, either because of lack of space or inability to access the file that already exists.
+14. Because third argument in fread indicates the number of elements of a previously indicated size to be read. And in your code a struct needs to be read only once.
+15. 3
+16. It sets a stream position by an indicated offset either from beginning, end or current position of a file pointer.
+17. It is the current position of a pointer inside a file.
+18. Rick Astley
