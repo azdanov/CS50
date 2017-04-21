@@ -1,92 +1,74 @@
 #include <stdio.h>
 #include <cs50.h>
-#include <math.h>
 
-int calc_even(int even_sum, int temp);
-
-int card_checksum(long card_number, int n_digits);
-
-void validate_card(long start_digits, int checksum);
-
-int main(void) {
+int main(void)
+{
     printf("Number: ");
+    long card_number_input = get_long_long();
 
-    long card_number = get_long_long();
+    int total_digits = 0;
+    long card_number_temp = card_number_input;
 
-    // check two most significant digits
-    long start_digits = card_number;
-    while (start_digits >= 100) start_digits /= 10;
+    /* Get card number length */
+    while (card_number_temp != 0) {
+        card_number_temp /= 10;
+        total_digits++;
+    }
 
-    // check number of digits
-    int n_digits = (int) floor(log10(card_number)) + 1;
-
-    if (!((start_digits == 34 || start_digits == 37) ||
-          (start_digits >= 51 && start_digits <= 55) ||
-          (start_digits >= 40 && start_digits <= 49) ||
-          (n_digits >= 13 && n_digits <= 16))) {
+    /* Check card number length */
+    if (total_digits < 13 || total_digits > 16) {
         printf("INVALID\n");
         return 0;
     }
 
-    int checksum = card_checksum(card_number, n_digits);
+    int card_number[total_digits];
+    card_number_temp = card_number_input;
 
-    validate_card(start_digits, checksum);
+    /* Create an array with card numbers */
+    while (card_number_temp != 0) {
+        total_digits--;
+        card_number[total_digits] = (int) (card_number_temp % 10);
+        card_number_temp /= 10;
+    }
+
+    /* Check first numbers for validity */
+    if ((card_number[0] != 4) && 
+        (card_number[0] != 3 && (card_number[1] != 4 || card_number[1] != 7)) && 
+        (card_number[0] != 5 && (card_number[1] != 1 || card_number[1] != 2 || card_number[1] != 3 || 
+                                    card_number[1] != 4 || card_number[1] != 5))) {
+        printf("INVALID\n");
+        return 0;
+    }
+
+    int odd_numbers = 0, even_numbers = 0, sum_of_numbers;
+
+    /* Use Luhn’s algorithm to determine if card number is syntactically valid */
+    for (int i = 0; i < total_digits; ++i) {
+        if (i % 2 != 0) {
+            odd_numbers += card_number[i];
+        }
+        else {
+            even_numbers += card_number[i] * 2;
+        }
+    }
+
+    sum_of_numbers = even_numbers + odd_numbers;
+
+    if (sum_of_numbers % 10 != 0) {
+        printf("INVALID\n");
+    }
+    else {
+        switch (card_number[0]) {
+            case 3:printf("AMEX\n");
+                break;
+            case 4:printf("VISA\n");
+                break;
+            case 5:printf("MASTERCARD\n");
+                break;
+            default:printf("INVALID\n");
+                break;
+        }
+    }
 
     return 0;
-}
-
-void validate_card(long start_digits, int checksum) {
-    if (checksum == 0) {
-        printf("INVALID\n");
-    } else {
-        if (start_digits == 34 || start_digits == 37)
-            printf("AMEX\n");
-        else if (start_digits >= 51 && start_digits <= 55)
-            printf("MASTERCARD\n");
-        else if (start_digits >= 40 && start_digits <= 49)
-            printf("VISA\n");
-    }
-}
-
-int card_checksum(long card_number, int n_digits) {
-    // Luhn’s algorithm
-    // return 0 for false, -1 for true
-
-    long card_copy = card_number;
-    int odd_sum = 0;
-    int even_sum = 0;
-
-    if (n_digits % 2 == 0) {
-        for (int i = 0; i < n_digits; i++) {
-            int temp = (int) (card_copy % 10);
-            if (i % 2 != 0)
-                odd_sum += temp;
-            else
-                even_sum = calc_even(even_sum, temp);
-            card_copy /= 10;
-        }
-    } else {
-        for (int i = 0; i < n_digits; i++) {
-            int temp = (int) (card_copy % 10);
-            if (i % 2 == 0)
-                odd_sum += temp;
-            else
-                even_sum = calc_even(even_sum, temp);
-            card_copy /= 10;
-        }
-    }
-    return (odd_sum + even_sum) % 10 - 1;
-}
-
-int calc_even(int even_sum, int temp) {
-    temp *= 2;
-    // split tens into ones to add
-    if (temp > 9)
-        for (int j = 0; j < 2; j++) {
-            even_sum += temp % 10;
-            temp /= 10;
-        }
-    else
-        even_sum += temp;
-    return even_sum;
 }
