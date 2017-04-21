@@ -1,40 +1,45 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int main(void) {
-    float change_owned = 0;
-    int number_of_coins = 0;
+#define QUARTER 25
+#define DIME 10
+#define NICKEL 5
+#define PENNY 1
+#define CORRECT_IMPRECISION 0.0001
 
-    float quarter = 0.25;
-    float dime = 0.1;
-    float nickel = 0.05;
-    float pennie = 0.01;
-
-    float epsilon = 0.01;
-
-    printf("O hai! ");
+int main(void)
+{
+    float change_input;
 
     do {
-        printf("How much change is owed?\n");
-        change_owned = get_float();
-    } while (change_owned <= 0);
-
-    change_owned += 0.00001; // fix potential float error
-
-    while (change_owned >= epsilon) {
-        if ((change_owned / quarter) >= 1) {
-            change_owned -= quarter;
-            number_of_coins++;
-        } else if ((change_owned / dime) >= 1) {
-            change_owned -= dime;
-            number_of_coins++;
-        } else if ((change_owned / nickel) >= 1) {
-            change_owned -= nickel;
-            number_of_coins++;
-        } else {
-            change_owned -= pennie;
-            number_of_coins++;
-        }
+        printf("O hai! How much change is owed?\n");
+        change_input = get_float();
     }
-    printf("%d\n", number_of_coins);
+    while (change_input < 0);
+
+    int change_owned = (int) ((change_input + CORRECT_IMPRECISION) * 100); // Normalise floats (e.g '0.409995' ==> '41')
+
+    int total_coins = 0;
+
+    while (change_owned > 0) {
+
+        if (change_owned - QUARTER >= 0) {
+            change_owned -= QUARTER;
+        }
+        else if (change_owned - DIME >= 0) {
+            change_owned -= DIME;
+        }
+        else if (change_owned - NICKEL >= 0) {
+            change_owned -= NICKEL;
+        }
+        else {
+            change_owned -= PENNY;
+        }
+        
+        total_coins++;
+    }
+
+    printf("%d\n", total_coins);
+
+    return 0;
 }
