@@ -1,29 +1,22 @@
 #include <stdio.h>
 #include <cs50.h>
-#include <string.h>
 #include <ctype.h>
 
-
-int main(void) {
+int main(void)
+{
     string name = get_string();
+    int i = 0;
 
-    char initials[4] = {};
-
-    int name_len = strlen(name);
-
-    bool inside = false;
-
-    for (int i = 0, j = 0; i < name_len; i++) {
-        if (isalpha(name[i]) && !inside) {
-            inside = true;
-            initials[j] = toupper(name[i]);
-            j++;
-        } else if (isspace(name[i])) {
-            inside = false;
-            continue;
+    do {
+        if ((isspace(name[i])) || (i - 1 >= 0 && isalpha(name[i - 1]))) {
+            /* Empty block */
         }
+        else {
+            printf("%c", toupper(name[i]));
+        }
+        ++i;
     }
+    while (name[i] != '\0');
 
-    printf("%s\n", initials);
-
+    printf("\n");
 }
