@@ -1,27 +1,22 @@
 #include <stdio.h>
-#include <string.h>
-#include <ctype.h>
 #include <cs50.h>
+#include <ctype.h>
 
-int main(void) {
-    // Get a name to initialise
+int main(void)
+{
     string name = get_string();
+    int i = 0;
 
-    // Append first letter, initials[4] is '/0'
-    char initials[4] = {toupper(name[0])};
-
-    // Get full name length
-    int name_len = strlen(name);
-
-    for (int i = 0, j = 1; i < name_len; i++) {
-        // If there is a space then next letter is of a new word
-        if (name[i] == ' ') {
-            initials[j] = toupper(name[i + 1]);
-            j++;
+    do {
+        if ((isspace(name[i])) || (i - 1 >= 0 && isalpha(name[i - 1]))) {
+            /* Empty block */
         }
+        else {
+            printf("%c", toupper(name[i]));
+        }
+        ++i;
     }
+    while (name[i] != '\0');
 
-    printf("%s\n", initials);
-
-    return 0;
+    printf("\n");
 }
