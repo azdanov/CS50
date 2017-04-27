@@ -1,62 +1,63 @@
 #include <stdio.h>
-#include <cs50.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdbool.h>
+#include <cs50.h>
 
-#define ALPHA_NUM 26
+#define ALPHA_LEN 26
 
-void key_exit();
+bool is_string(string key);
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
+    if (argc != 2 || is_string(argv[1]) == false) {
+        printf("Usage: ./caesar k\n");
+        return 1;
+    }
 
-    // check argument number
-    if (argc != 2)
-        key_exit();
+    // Normalize ascii alpha key to numerical shifts
+    int key_len = (int) strlen(argv[1]);
+    int key[key_len];
+    for (int i = 0; i < key_len; ++i) {
+        key[i] = toupper(argv[1][i]) - 'A';
+    }
 
-    // get key length
-    size_t key_len = strlen(argv[1]);
-
-    // create key copy
-    char key[key_len + 1];
-    strcpy(key, argv[1]);
-
-    // check if key is alpha
-    for (int j = 0; j < key_len; j++)
-        if (!isalpha(key[j]))
-            key_exit();
-
-    // get plaintext from user
-    printf("plaintext: ");
+    printf("plaintext:  ");
     string plaintext = get_string();
 
-    // encode plaintext
-    size_t text_len = strlen(plaintext);
-    char ciphertext[text_len + 1];
+    printf("ciphertext: ");
+    for (int i = 0, j = 0, text_len = (int) strlen(plaintext), shift; i < text_len; ++i) {
 
-    for (int i = 0, k = 0; i < text_len; i++) {
         if (isalpha(plaintext[i])) {
+
+            shift = plaintext[i] + key[j % key_len];
+
             if (isupper(plaintext[i])) {
-                // Uppercase shift
-                ciphertext[i] = (char) ((((plaintext[i] - 'A') + toupper(key[k % key_len]) % 'A') % ALPHA_NUM) + 'A');
-            } else {
-                // Lowercase shift
-                ciphertext[i] = (char) ((((plaintext[i] - 'a') + tolower(key[k % key_len]) % 'a') % ALPHA_NUM) + 'a');
+                printf("%c", (shift - 'A') % ALPHA_LEN + 'A');
             }
-            k++;
-        } else {
-            // Skip non alpha
-            ciphertext[i] = plaintext[i];
+            else {
+                printf("%c", (shift - 'a') % ALPHA_LEN + 'a');
+            }
+            
+            ++j;
+        }
+        else {
+            printf("%c", plaintext[i]);
         }
     }
-    // insert NUL
-    ciphertext[text_len] = '\0';
 
-    printf("ciphertext: %s\n", ciphertext);
+    printf("\n");
 
     return 0;
 }
 
-void key_exit() {
-    printf("Usage (k is keyword):\n./caesar k \n");
-    exit(1);
+bool is_string(string key)
+{
+    for (int i = 0, key_len = (int) strlen(key); i < key_len; ++i) {
+        if (isalpha(key[i]) == false) {
+            return false;
+        }
+    }
+
+    return true;
 }
