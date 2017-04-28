@@ -1,44 +1,44 @@
 #define _XOPEN_SOURCE
-
 #include <stdio.h>
+#include <crypt.h>
 #include <string.h>
 #include <unistd.h>
 
-#define LEN 5 // max password length
+#define SEED "50"
 
-void increment_guess(char str[], int pos);
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
 
     if (argc != 2) {
         printf("Usage: ./crack hash\n");
         return 1;
     }
 
-    char salt[3];
-    strncpy(salt, argv[1], 2); // get salt, first two chars
+    const char alphabet[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-    char guess[LEN] = {'\0'};
+    char word[5] = {0};
 
-    do {
-        if (strcmp(argv[1], crypt(guess, salt)) == 0) { // compare both hashes
-            printf("%s", guess);
-            return 0;
+    int alphabet_len = (int) strlen(alphabet);
+
+    for (int i = 0; i < alphabet_len; ++i) {
+        for (int j = 0; j < alphabet_len; ++j) {
+            for (int k = 0; k < alphabet_len; ++k) {
+                for (int l = 0; l < alphabet_len; ++l) {
+                    if (strcmp(crypt(word, SEED), argv[1]) == 0) {
+                        goto exit_loop;
+                    }
+                    word[0] = alphabet[l];
+                }
+                word[1] = alphabet[k];
+            }
+            word[2] = alphabet[j];
         }
-        increment_guess(guess, 0);
-    } while (guess[LEN - 1] == '\0');
-
-}
-
-void increment_guess(char str[], int pos) {
-    if (str[pos] == '\0') {       // start with upper 'A'
-        str[pos] = 'A';
-    } else if (str[pos] == 'Z') { // skip to lower 'a'
-        str[pos] = 'a';
-    } else if (str[pos] == 'z') { // next position when end is reached
-        str[pos] = 'a';
-        increment_guess(str, pos + 1);
-    } else {                      // else increment char
-        str[pos]++;
+        word[3] = alphabet[i];
     }
+    exit_loop:;
+
+    printf("%s\n", word);
+
+    return 0;
 }
