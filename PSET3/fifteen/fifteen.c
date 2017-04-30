@@ -22,44 +22,23 @@
 // constants
 #define DIM_MIN 3
 #define DIM_MAX 9
-#define RIGHT 1
-#define LEFT 2
-#define DOWN 3
-#define UP 4
-#define GREEN   "\x1b[32m"
-#define RESET   "\x1b[0m"
-
 
 // board
 int board[DIM_MAX][DIM_MAX];
-
-// Coordinates
-struct cord {
-    int row;
-    int col;
-} num, zero;
 
 // dimensions
 int d;
 
 // prototypes
 void clear(void);
-
 void greet(void);
-
 void init(void);
-
 void draw(void);
-
 bool move(int tile);
-
-bool findNumber(int tile);
-
-bool swapTiles(int n);
-
 bool won(void);
 
-int main(int argc, string argv[]) {
+int main(int argc, string argv[])
+{
     // ensure proper usage
     if (argc != 2) {
         printf("Usage: fifteen d\n");
@@ -114,7 +93,7 @@ int main(int argc, string argv[]) {
 
         // prompt for move
         printf("Tile to move: ");
-        int tile = GetInt();
+        int tile = get_int();
 
         // quit if user inputs 0 (for testing)
         if (tile == 0) {
@@ -145,7 +124,8 @@ int main(int argc, string argv[]) {
 /**
  * Clears screen using ANSI escape sequences.
  */
-void clear(void) {
+void clear(void)
+{
     printf("\033[2J");
     printf("\033[%d;%dH", 0, 0);
 }
@@ -153,44 +133,51 @@ void clear(void) {
 /**
  * Greets player.
  */
-void greet(void) {
+void greet(void)
+{
     clear();
     printf("WELCOME TO GAME OF FIFTEEN\n");
-    usleep(2000000);
+    usleep(20000);
 }
 
 /**
  * Initializes the game's board with tiles numbered 1 through d*d - 1
  * (i.e., fills 2D array with values but does not actually print them).
  */
-void init(void) {
-    int num = d * d - 1, temp;
-    for (int row = 0; row < d; ++row)
-        for (int col = 0; col < d; ++col, --num)
-            board[row][col] = num;
-    board[d - 1][d - 1] = 0;
+void init(void)
+{
+    for (int x = 0, highest = d * d - 1; x < d; ++x) {
+        for (int y = 0; y < d; ++y, --highest) {
+            board[x][y] = highest;
+        }
+    }
+
+    /**
+     * If the board contains an odd number of tiles
+     * (i.e., the height and width of the board are even)
+     * the positions of tiles numbered 1 and 2 is swapped
+     */
     if (d % 2 == 0) {
-        int a = d - 1, b = d - 2, c = d - 3;
-        temp = board[a][c];
-        board[a][c] = board[a][b];
-        board[a][b] = temp;
+        int temp = board[d - 1][d - 2];
+        board[d - 1][d - 2] = board[d - 1][d - 3];
+        board[d - 1][d - 3] = temp;
     }
 }
 
 /**
  * Prints the board in its current state.
  */
-void draw(void) {
-    int n = 1;
-    for (int i = 0; i < d; ++i) {
-        for (int j = 0; j < d; ++j)
-            if (board[i][j] == 0) {
-                printf("%4c", '_');
-                continue;
-            } else if (board[i][j] == n++) // Highlight correct tile positions
-                printf(GREEN "%4d" RESET, board[i][j]);
-            else
-                printf("%4d", board[i][j]);
+void draw(void)
+{
+    for (int x = 0; x < d; ++x) {
+        for (int y = 0; y < d; ++y) {
+            if (board[x][y]) {
+                printf("%3d", board[x][y]);
+            }
+            else {
+                printf("%3c", '_');
+            }
+        }
         printf("\n");
     }
 }
@@ -199,63 +186,43 @@ void draw(void) {
  * If tile borders empty space, moves tile and returns true, else
  * returns false.
  */
-bool move(int tile) {
-    if (!findNumber(tile)) // Confirm that input is within the number range
-        return false;
+bool move(int tile)
+{
+    int x, y;
 
-    if (board[num.row][num.col + 1] == 0 && num.col + 1 != d)
-        return swapTiles(RIGHT);
-    else if (board[num.row][num.col - 1] == 0 && num.col)
-        return swapTiles(LEFT);
-    else if (board[num.row + 1][num.col] == 0 && num.row + 1 != d)
-        return swapTiles(DOWN);
-    else if (board[num.row - 1][num.col] == 0 && num.row)
-        return swapTiles(UP);
-    else
-        return false;
-    return false;
-}
-
-// Returns true if inputted tile is found while saving the position
-// to global variable, else returns false
-bool findNumber(int tile) {
-    for (int i = 0; i < d; ++i)
-        for (int j = 0; j < d; ++j)
-            if (board[i][j] == tile) {
-                num.row = i;
-                num.col = j;
-                return true;
+    for (x = 0; x < d; ++x) {
+        for (y = 0; y < d; ++y) {
+            if (board[x][y] == tile) {
+                goto loop_exit;
             }
-    return false;
-}
-
-// Returns true if tiles are swapped, else returns false
-bool swapTiles(int i) {
-    int temp, row = num.row, col = num.col;
-    switch (i) {
-        case 1 :
-            temp = board[row][col + 1];
-            board[row][col + 1] = board[row][col];
-            board[row][col] = temp;
-            return true;
-        case 2:
-            temp = board[row][col - 1];
-            board[row][col - 1] = board[row][col];
-            board[row][col] = temp;
-            return true;
-        case 3:
-            temp = board[row + 1][col];
-            board[row + 1][col] = board[row][col];
-            board[row][col] = temp;
-            return true;
-        case 4:
-            temp = board[row - 1][col];
-            board[row - 1][col] = board[row][col];
-            board[row][col] = temp;
-            return true;
-        default:
-            return false;
+        }
     }
+    loop_exit: ;
+    // Up
+    if (x - 1 >= 0 && board[x - 1][y] == 0) {
+        board[x - 1][y] = board[x][y];
+        board[x][y] = 0;
+        return true;
+    }
+    // Down
+    else if (x + 1 < d && board[x + 1][y] == 0) {
+        board[x + 1][y] = board[x][y];
+        board[x][y] = 0;
+        return true;
+    }
+    // Left
+    else if (y - 1 >= 0 && board[x][y - 1] == 0) {
+        board[x][y - 1] = board[x][y];
+        board[x][y] = 0;
+        return true;
+    }
+    // Right
+    else if (y + 1 < d && board[x][y + 1] == 0) {
+        board[x][y + 1] = board[x][y];
+        board[x][y] = 0;
+        return true;
+    }
+
     return false;
 }
 
@@ -263,18 +230,17 @@ bool swapTiles(int i) {
  * Returns true if game is won (i.e., board is in winning configuration),
  * else false.
  */
-bool won(void) {
-    int n = 1;
-    for (int row = 0; row < d; ++row)
-        for (int col = 0; col < d; ++col, ++n)
-            if (board[row][col] != n && n < d * d)
+bool won(void)
+{
+    int current = 1, highest = d * d - 1;
+
+    for (int x = 0; x < d; ++x) {
+        for (int y = 0; y < d && current <= highest; ++y, ++current) {
+            if (board[x][y] != current) {
                 return false;
-            else
-                continue;
+            }
+        }
+    }
 
-    if (n == d * d + 1)
-        return true;
-
-    return false;
+    return true;
 }
-
