@@ -13,20 +13,25 @@
  */
 bool search(int value, int values[], int n) {
 
-    int mid,
-        lower = 0,
-        upper = n - 1;
+    int start = 0, end = n - 1, middle;
 
-    do {
-        mid = (lower + upper) / 2;
-        if (value < values[mid])
-            upper = mid - 1;
-        else if (value > values[mid])
-            lower = mid + 1;
-        else
+    while (start <= end) {
+
+        middle = (start + end) / 2;
+
+        if (values[middle] == value) {
             return true;
-    } while (lower <= upper);
-
+        }
+        else if (values[middle] > value) {
+            end = middle - 1;
+        }
+        else if (values[middle] < value) {
+            start = middle + 1;
+        }
+        else {
+            break;
+        }
+    }
     return false;
 }
 
