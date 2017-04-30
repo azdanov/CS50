@@ -12,6 +12,11 @@
 bool search(int value, int values[], int n);
 
 /**
+ * Find maximum number from an array
+ */
+int find_max(int array[], int n);
+
+/**
  * Sorts array of n values.
  */
 void sort(int values[], int n);
