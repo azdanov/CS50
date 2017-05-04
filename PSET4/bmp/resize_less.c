@@ -45,9 +45,6 @@ int main(int argc, char *argv[])
         fprintf(stderr, "Unsupported file format.\n");
         return 4;
     }
-    /**
-     *  TODO:  biSizeImage
-     */
 
     int infile_width = bi.biWidth, infile_height = bi.biHeight;
 
