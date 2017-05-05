@@ -341,7 +341,7 @@ $ ./resize .25 large.bmp small.bmp
 
 Official specifications for [Resize](http://docs.cs50.net/problems/resize/more/resize.html) on CS50.
 
-My implementation of [Resize](PSET4/bmp/resize_more.c).
+My implementation of [~~Resize~~](PSET4/bmp/resize_more.c).
 
 
 ### Recover
