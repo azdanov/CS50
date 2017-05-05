@@ -1,88 +1,59 @@
-/**
- * recover.c
- *
- * Computer Science 50
- * Problem Set 4
- *
- * Recovers JPEGs from a forensic image.
- */
-
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
 
-#define FILE_NAME "card.raw"
+#define BLOCK 512
 
-typedef struct
+typedef unsigned char BYTE;
+
+int main(int argc, char *argv[])
 {
-    uint8_t first_byte;
-    uint8_t second_byte;
-    uint8_t third_byte;
-    uint8_t fourth_byte;
-} JPG_HEAD;
-
-
-int main(void)
-{
-    int namingHelper = 0;
-    char jpegName[8];
-    FILE* jpeg = NULL;
-
-    // Open card.raw image
-    FILE* card = fopen(FILE_NAME, "r");
-    if (card == NULL)
-    {
-        fprintf(stderr, "Could not open %s\n", FILE_NAME);
-        perror("");
+    if (argc != 2) {
+        fprintf(stderr, "Usage: ./recover image\n");
         return 1;
     }
 
-    while (card)
-    {
-        // New storage
-        JPG_HEAD jpg;
-        uint8_t block[508];
+    char *image_name = argv[1];
 
-        // Read in the 512 bytes
-        fread(&jpg, sizeof(JPG_HEAD), sizeof(uint8_t), card);
-        fread(block, sizeof(block), sizeof(uint8_t), card);
+    FILE *file_p = fopen(image_name, "r");
+    if (file_p == NULL) {
+        fprintf(stderr, "Could not open %s.\n", image_name);
+        return 2;
+    }
 
-        // Check for end of card file
-        if (feof(card))
+    char photo_name[] = "###.jpg";
+    BYTE buffer[BLOCK];
+    int photo_number = 0;
+    FILE *photo_p = NULL;
+
+    for (;;) {
+        fread(buffer, 1, BLOCK, file_p);
+
+        if (feof(file_p)) {
             break;
+        }
 
-        // Verify JPG Header
-        if (jpg.first_byte == 0xFF && jpg.second_byte == 0xD8 && jpg.third_byte == 0xFF &&
-            (jpg.fourth_byte >= 0xE0 && jpg.fourth_byte <= 0xEF))
-        {
-            if (jpeg)
-            {
-                fclose(jpeg);
-                jpeg = NULL;
+        if (buffer[0] == 0xff &&
+            buffer[1] == 0xd8 &&
+            buffer[2] == 0xff &&
+            (buffer[3] & 0xf0) == 0xe0) {
+
+            if (photo_p) {
+                fclose(photo_p);
             }
 
-            // Set a new name for a jpg file
-            sprintf(jpegName, "%.3d.jpg", namingHelper++);
-
-            // Open a new jpg
-            jpeg = fopen(jpegName, "w");
-            if (jpeg == NULL)
-            {
-                fprintf(stderr, "Could not create %s\n", jpegName);
-                perror("");
-                exit(2);
+            sprintf(photo_name, "%.3d.jpg", photo_number++);
+            photo_p = fopen(photo_name, "w");
+            if (photo_p == NULL) {
+                fprintf(stderr, "Could not save %s.\n", photo_name);
+                return 2;
             }
         }
-        // Write to a jpg file
-        if (jpeg)
-        {
-            fwrite(&jpg, sizeof(JPG_HEAD), sizeof(uint8_t), jpeg);
-            fwrite(block, sizeof(block), sizeof(uint8_t), jpeg);
+
+        if (photo_p) {
+            fwrite(buffer, 1, BLOCK, photo_p);
         }
     }
 
-    fclose(card);
-    fclose(jpeg);
-
+    fclose(photo_p);
+    fclose(file_p);
     return 0;
 }
