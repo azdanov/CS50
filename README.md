@@ -47,7 +47,7 @@
 *  **[Final Project](#final-project)**
 
 ## Intro
-This is a _work in progress_ repository containing solutions for CS50 problem sets.
+This is a work in progress repository containing solutions for CS50 problem sets.
 
 I mainly use this as personal training grounds to try out different things and learn while doing it.
 
@@ -57,7 +57,7 @@ Feel free to contribute in any way you see fit, all feedback is welcome.
 
 [Latest CS50 Library](https://github.com/cs50/cs50) for C.
 
-[How to install](https://manual.cs50.net/library/) _(Might contain outdated library files)_
+[How to install](https://manual.cs50.net/library/) _(Might be outdated)_
 
 ## Problem Set 0
 
@@ -128,7 +128,7 @@ Height: 3
 
 Official specifications for [mario_less](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
 
-My implementation of [mario_less](PSET1/mario.c).
+My implementation of [mario](PSET1/mario.c).
 
 ### Mario, more comfortable
 
@@ -146,7 +146,7 @@ Height: 4
 Official specifications for [mario_more](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
 
 
-My implementation of [mario_more](PSET1/mario_more.c).
+My implementation of [mario](PSET1/mario_more.c).
 
 ### Greedy, less comfortable
 
@@ -192,7 +192,7 @@ RAB
 
 Official specifications for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
 
-My implementation of [initials_less](PSET2/initials.c).
+My implementation of [initials](PSET2/initials.c).
 
 ### Initials, more comfortable
 
@@ -206,7 +206,7 @@ RAB
 
 Official specifications for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
 
-My implementation of [initials_more](PSET2/initials_more.c).
+My implementation of [initials](PSET2/initials_more.c).
 
 ### Caesar, less comfortable
 
@@ -249,7 +249,7 @@ Official specifications for [crack](http://docs.cs50.net/problems/crack/crack.ht
 
 My implementation of [crack](PSET2/crack.c).
 
-A helpful website to  [visualize the algorithm](http://bit.ly/2mKcXis).
+A helpful website to [visualize the recursive algorithm](http://bit.ly/2mKcXis).
 
 ## Problem Set 3
 
@@ -262,9 +262,9 @@ $ ./generate 1000 | ./find 42
 Didn't find needle in haystack.
 ```
 
-Official specifications for [find, less comfortable](http://docs.cs50.net/problems/find/less/find.html) on CS50.
+Official specifications for [find](http://docs.cs50.net/problems/find/less/find.html) on CS50.
 
-My implementation of [crack](PSET3/find_less/).
+My implementation of [find, less comfortable](PSET3/find_less/).
 
 ### Find, more comfortable
 
@@ -277,7 +277,7 @@ Didn't find needle in haystack.
 
 Official specifications for [find, more comfortableack](http://docs.cs50.net/problems/find/more/find.html) on CS50.
 
-My implementation of [crack](PSET3/find_more).
+My implementation of [find](PSET3/find_more).
 
 ### Game of Fifteen
 
@@ -298,7 +298,7 @@ Tile to move:
 
 Official specifications for [game of fifteen](http://docs.cs50.net/problems/fifteen/fifteen.html) on CS50.
 
-My implementation of [crack](PSET3/fifteen).
+My implementation of [fifteen](PSET3/fifteen).
 
 ## Problem Set 4
 
