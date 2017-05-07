@@ -388,7 +388,8 @@ TIME IN TOTAL:
 ```
 Official specifications for [Speller](http://docs.cs50.net/problems/recover/recover.html) on CS50.
 
-My implementation of [Speller](PSET5/).
+My old implementation of [Speller](PSET5/old).
+My trie implementation of [Speller](PSET5/trie).
 
 ## Problem Set 6
 `Coming soon`
