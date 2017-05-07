@@ -126,7 +126,7 @@ Height: 3
 ####
 ```
 
-Official specifications for [mario_less](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
+Official specifications for [mario](http://docs.cs50.net/problems/mario/less/mario.html) on CS50.
 
 My implementation of [mario](PSET1/mario.c).
 
@@ -143,7 +143,7 @@ Height: 4
 ####  ####
 ```
 
-Official specifications for [mario_more](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
+Official specifications for [mario](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
 
 
 My implementation of [mario](PSET1/mario_more.c).
@@ -159,7 +159,7 @@ O hai! How much change is owed?
 4
 ```
 
-Official specifications for [greedy_less](http://docs.cs50.net/problems/greedy/greedy.html) on CS50.
+Official specifications for [greedy](http://docs.cs50.net/problems/greedy/greedy.html) on CS50.
 
 My implementation of [greedy](PSET1/greedy.c).
 
@@ -173,7 +173,7 @@ Number: 378282246310005
 AMEX
 ```
 
-Official specifications for [greedy_more](http://docs.cs50.net/problems/credit/credit.html) on CS50.
+Official specifications for [credit](http://docs.cs50.net/problems/credit/credit.html) on CS50.
 
 My implementation of [credit](PSET1/credit.c).
 
@@ -190,7 +190,7 @@ Regulus Arcturus Black
 RAB
 ```
 
-Official specifications for [initials_less](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
+Official specifications for [initials](http://docs.cs50.net/problems/initials/less/initials.html) on CS50.
 
 My implementation of [initials](PSET2/initials.c).
 
@@ -204,7 +204,7 @@ $ ./initials
 RAB
 ```
 
-Official specifications for [initials_more](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
+Official specifications for [initials](http://docs.cs50.net/problems/initials/more/initials.html) on CS50.
 
 My implementation of [initials](PSET2/initials_more.c).
 
@@ -264,7 +264,7 @@ Didn't find needle in haystack.
 
 Official specifications for [find](http://docs.cs50.net/problems/find/less/find.html) on CS50.
 
-My implementation of [find, less comfortable](PSET3/find_less/).
+My implementation of [find](PSET3/find_less/).
 
 ### Find, more comfortable
 
@@ -275,7 +275,7 @@ $ ./generate 1000 | ./find 42
 Didn't find needle in haystack.
 ```
 
-Official specifications for [find, more comfortableack](http://docs.cs50.net/problems/find/more/find.html) on CS50.
+Official specifications for [find](http://docs.cs50.net/problems/find/more/find.html) on CS50.
 
 My implementation of [find](PSET3/find_more).
 
