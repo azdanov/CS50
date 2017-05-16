@@ -39,6 +39,13 @@
     *   **[Speller](#speller)**
 
 *  **[Problem Set 6](#problem-set-6)**
+    *   **[Mario](#mario-python)**
+    *   **[Greedy](#greedy-less-comfortable-python)**
+    *   **[Credit](#credit-less-comfortable-python)**
+    *   **[Caesar](#caesar-less-comfortable-python)**
+    *   **[Vigenere](#greedy-less-comfortable-python)**
+    *   **[Crack](#greedy-more-comfortable-python)**
+    *   **[Sentiments](#sentiments)**
 
 *  **[Problem Set 7](#problem-set-7)**
 
@@ -395,29 +402,29 @@ Port some previous programs from C to Python.
 
 Official specifications for [Problem Set 6](http://docs.cs50.net/2017/x/psets/6/pset6.html#problems)
 
-### Mario
+### Mario python
 
 My implementation of [Mario](PSET6/mario_less.py), less comfortable on python.
 
 My implementation of [Mario](PSET6/mario_more.py), more comfortable on python.
 
-### Greedy, less comfortable
+### Greedy, less comfortable python
 
 My implementation of [Greedy](PSET6/greedy.py) on python.
 
-### Credit, more comfortable
+### Credit, more comfortable python
 
 My implementation of [Credit](PSET6/credit.py) on python.
 
-### Caesar, less comfortable
+### Caesar, less comfortable python
 
 My implementation of [Caesar](PSET6/caesar.py) on python.
 
-### Vigenère, less comfortable
+### Vigenère, less comfortable python
 
 My implementation of [Vigenère](PSET6/vigenere.py) on python.
 
-### Crack, more comfortable
+### Crack, more comfortable python
 
 My implementation of [Crack](PSET6/crack.py) on python.
 
