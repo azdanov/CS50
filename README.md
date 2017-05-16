@@ -43,8 +43,8 @@
     *   **[Greedy](#greedy-less-comfortable-python)**
     *   **[Credit](#credit-less-comfortable-python)**
     *   **[Caesar](#caesar-less-comfortable-python)**
-    *   **[Vigenere](#greedy-less-comfortable-python)**
-    *   **[Crack](#greedy-more-comfortable-python)**
+    *   **[Vigenere](#vigenere-less-comfortable-python)**
+    *   **[Crack](#crack-more-comfortable-python)**
     *   **[Sentiments](#sentiments)**
 
 *  **[Problem Set 7](#problem-set-7)**
