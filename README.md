@@ -420,9 +420,9 @@ My implementation of [Credit](PSET6/credit.py) on python.
 
 My implementation of [Caesar](PSET6/caesar.py) on python.
 
-### Vigenère, less comfortable python
+### Vigenere, less comfortable python
 
-My implementation of [Vigenère](PSET6/vigenere.py) on python.
+My implementation of [Vigenere](PSET6/vigenere.py) on python.
 
 ### Crack, more comfortable python
 
