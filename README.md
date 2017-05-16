@@ -249,8 +249,6 @@ Official specifications for [crack](http://docs.cs50.net/problems/crack/crack.ht
 
 My implementation of [crack](PSET2/crack.c).
 
-A helpful website to [visualize the recursive algorithm](http://bit.ly/2mKcXis).
-
 ## Problem Set 3
 
 ### Find, less comfortable
@@ -392,7 +390,76 @@ My old implementation of [Speller](PSET5/old).
 My trie implementation of [Speller](PSET5/trie).
 
 ## Problem Set 6
-`Coming soon`
+
+Port some previous programs from C to Python.
+
+Official specifications for [Problem Set 6](http://docs.cs50.net/2017/x/psets/6/pset6.html#problems)
+
+### Mario
+
+My implementation of [Mario](PSET6/mario_less.py), less comfortable on python.
+
+My implementation of [Mario](PSET6/mario_more.py), more comfortable on python.
+
+### Greedy, less comfortable
+
+My implementation of [Greedy](PSET6/greedy.py) on python.
+
+### Credit, more comfortable
+
+My implementation of [Credit](PSET6/credit.py) on python.
+
+### Caesar, less comfortable
+
+My implementation of [Caesar](PSET6/caesar.py) on python.
+
+### Vigenère, less comfortable
+
+My implementation of [Vigenère](PSET6/vigenere.py) on python.
+
+### Crack, more comfortable
+
+My implementation of [Crack](PSET6/crack.py) on python.
+
+### Sentiments
+
+Official specifications for [Sentinents](http://docs.cs50.net/problems/sentiments/sentiments.html)
+
+1) Implement a program that categorizes a word as positive or negative.
+
+```
+$ ./smile love
+:)
+$ ./smile hate
+:(
+$ ./smile Stanford
+:|
+```
+
+My implementation of [smile](PSET6/sentinents/smile) and [analyzer](PSET6/sentinents/analyzer.py)
+
+<br>
+
+2) Implement a program that categorizes a user’s tweets as positive or negative.
+
+```
+$ ./tweets @cs50
+ 0 hello, @world
+ 1 I love you, @world
+-1 I hate you, @world
+...
+```
+
+My implementation of [tweets](PSET6/sentinents/tweets) and [analyzer](PSET6/sentinents/analyzer.py)
+
+<br>
+
+3) Implement a website that generates a pie chart categorizing a user’s tweets.
+
+![Tweet pie](http://i.imgur.com/twGxbdI.png)
+
+My implementation of [application](PSET6/sentinents/application.py) and [helpers](PSET6/sentinents/helpers.py)
+
 
 ## Problem Set 7
 `Coming soon`
