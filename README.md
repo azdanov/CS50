@@ -41,7 +41,7 @@
 *  **[Problem Set 6](#problem-set-6)**
     *   **[Mario](#mario-python)**
     *   **[Greedy](#greedy-less-comfortable-python)**
-    *   **[Credit](#credit-less-comfortable-python)**
+    *   **[Credit](#credit-more-comfortable-python)**
     *   **[Caesar](#caesar-less-comfortable-python)**
     *   **[Vigenere](#vigenere-less-comfortable-python)**
     *   **[Crack](#crack-more-comfortable-python)**
@@ -430,7 +430,7 @@ My implementation of [Crack](PSET6/crack.py) on python.
 
 ### Sentiments
 
-Official specifications for [Sentinents](http://docs.cs50.net/problems/sentiments/sentiments.html)
+Official specifications for [Sentiments](http://docs.cs50.net/problems/sentiments/sentiments.html)
 
 1) Implement a program that categorizes a word as positive or negative.
 
@@ -443,7 +443,7 @@ $ ./smile Stanford
 :|
 ```
 
-My implementation of [smile](PSET6/sentinents/smile) and [analyzer](PSET6/sentinents/analyzer.py)
+My implementation of [smile](PSET6/sentiments/smile) and [analyzer](PSET6/sentiments/analyzer.py)
 
 <br>
 
@@ -457,7 +457,7 @@ $ ./tweets @cs50
 ...
 ```
 
-My implementation of [tweets](PSET6/sentinents/tweets) and [analyzer](PSET6/sentinents/analyzer.py)
+My implementation of [tweets](PSET6/sentiments/tweets) and [analyzer](PSET6/sentiments/analyzer.py)
 
 <br>
 
@@ -465,7 +465,7 @@ My implementation of [tweets](PSET6/sentinents/tweets) and [analyzer](PSET6/sent
 
 ![Tweet pie](http://i.imgur.com/twGxbdI.png)
 
-My implementation of [application](PSET6/sentinents/application.py) and [helpers](PSET6/sentinents/helpers.py)
+My implementation of [application](PSET6/sentiments/application.py) and [helpers](PSET6/sentiments/helpers.py)
 
 
 ## Problem Set 7
