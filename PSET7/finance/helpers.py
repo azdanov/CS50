@@ -1,5 +1,8 @@
+import pytz
+import collections
 import csv
 import urllib.request
+
 
 from flask import redirect, render_template, request, session, url_for
 from functools import wraps
@@ -76,3 +79,23 @@ def lookup(symbol):
 def usd(value):
     """Formats value as USD."""
     return "${:,.2f}".format(value)
+
+
+def get_timezone_dict():
+    continents = {}
+    for timezone in pytz.common_timezones:
+        city = timezone.partition("/")[-1].replace("_", " ")
+        continent = timezone.partition("/")[0].replace("_", " ")
+
+        ct = {city: timezone}
+        if continent in continents:
+            continents[continent].update(ct)
+        else:
+            if continent == "UTC":
+                ct = {"UTC": timezone}
+            elif continent == "GMT":
+                ct = {"GMT": timezone}
+            continents[continent] = ct
+    for continent in continents:
+        continents[continent] = collections.OrderedDict(sorted(continents[continent].items()))
+    return collections.OrderedDict(sorted(continents.items()))

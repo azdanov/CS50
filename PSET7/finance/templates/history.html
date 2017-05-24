@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  Portfolio
+  History
 {% endblock %}
 
 {% block main %}
@@ -9,36 +9,22 @@
     <thead>
     <tr>
       <th>Symbol</th>
-      <th>Name</th>
       <th>Shares</th>
       <th>Price</th>
-      <th>TOTAL</th>
+      <th>Transacted</th>
     </tr>
     </thead>
-    <tfoot>
-    <tr>
-      <td colspan="4"></td>
-      <td>{{ total_cash }}</td>
-    </tr>
-    </tfoot>
     <tbody>
-
-    {% if portfolios is iterable %}
-      {% for row in portfolios %}
+    {% if history is iterable %}
+      {% for row in history %}
         <tr>
           <td>{{ row["symbol"] }}</td>
-          <td>{{ row["name"] }}</td>
           <td>{{ row["shares"] }}</td>
           <td>{{ row["price"] }}</td>
-          <td>{{ row["total"] }}</td>
+          <td>{{ row["date"] }}</td>
         </tr>
       {% endfor %}
     {% endif %}
-    <tr>
-      <td colspan="4">CASH</td>
-      <td>{{ user_cash }}</td>
-    </tr>
-
     </tbody>
   </table>
 {% endblock %}

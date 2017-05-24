@@ -46,6 +46,7 @@
             <li><a href="{{ url_for('history') }}">History</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{ url_for('settings') }}">Settings</a></li>
             <li><a href="{{ url_for('logout') }}">Log Out</a></li>
           </ul>
         {% else %}
@@ -66,7 +67,7 @@
     </header>
   {% endif %}
 
-  <main>
+  <main class="container">
     {% block main %}{% endblock %}
   </main>
 

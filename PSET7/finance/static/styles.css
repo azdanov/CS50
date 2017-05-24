@@ -27,7 +27,8 @@ main .form-control {
   display: inline-block;
 
   /* override Bootstrap's 100% width for form controls */
-  width: auto;
+  min-width: 20%;
+  max-width: 30%;
 }
 
 main img {
@@ -38,4 +39,8 @@ main img {
 main td {
   /* left-align tables' cells */
   text-align: left;
+}
+
+tfoot td:last-of-type {
+  font-weight: bold;
 }

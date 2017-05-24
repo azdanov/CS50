@@ -1,18 +1,49 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  Quote
+  Portfolio
 {% endblock %}
 
 {% block main %}
-  <form action="{{ url_for('quote') }}" method="post">
-    <fieldset>
-      <div class="form-group">
-        <input required autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text"/>
-      </div>
-      <div class="form-group">
-        <button class="btn btn-default" type="submit">Quote</button>
-      </div>
-    </fieldset>
-  </form>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Name</th>
+      <th>Shares</th>
+      <th>Price</th>
+      <th>TOTAL</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+      <td colspan="4"></td>
+      <td>{{ total_cash }}</td>
+    </tr>
+    </tfoot>
+    <tbody>
+
+    {% if portfolios is iterable %}
+      {% for row in portfolios %}
+        <tr>
+          <td>{{ row["symbol"] }}</td>
+          <td>{{ row["name"] }}</td>
+          <td>{{ row["shares"] }}</td>
+          <td>{{ row["price"] }}</td>
+          <td>{{ row["total"] }}
+            <div class="btn-group pull-right">
+              <a href="{{ url_for('buy', s=row["symbol"]|lower) }}" class="btn btn-default btn-xs">Buy</a>
+              <a href="{{ url_for('sell', s=row["symbol"]|lower) }}" class="btn btn-default btn-xs">Sell</a>
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+    <tr>
+      <td colspan="4">CASH</td>
+      <td>{{ user_cash }}</td>
+    </tr>
+
+    </tbody>
+  </table>
 {% endblock %}
