@@ -469,7 +469,14 @@ My implementation of [application](PSET6/sentiments/application.py) and [helpers
 
 
 ## Problem Set 7
-`Coming soon`
+Implement a website via which users can "buy" and "sell" stocks, a la the below.
+
+Official specifications for [finance](http://docs.cs50.net/problems/finance/finance.html) on CS50.
+
+
+![Imgur](http://i.imgur.com/69cBr1M.png)
+
+My implementation of [finance](PSET7/finance/) and [online website](http://implaier.pythonanywhere.com/).
 
 ## Problem Set 8
 `Coming soon`
