@@ -48,8 +48,10 @@
     *   **[Sentiments](#sentiments)**
 
 *  **[Problem Set 7](#problem-set-7)**
+    *   **[Finance](#finance)**
 
 *  **[Problem Set 8](#problem-set-8)**
+    *   **[Mashup](#mashup)**
 
 *  **[Final Project](#final-project)**
 
@@ -469,17 +471,26 @@ My implementation of [application](PSET6/sentiments/application.py) and [helpers
 
 
 ## Problem Set 7
-Implement a website via which users can "buy" and "sell" stocks, a la the below.
+
+### Finance
+Implement a website via which users can "buy" and "sell" stocks.
 
 Official specifications for [finance](http://docs.cs50.net/problems/finance/finance.html) on CS50.
 
-
-![Imgur](http://i.imgur.com/69cBr1M.png)
+![Finance](http://i.imgur.com/LC4yMws.png)
 
 My implementation of [finance](PSET7/finance/) and [online website](http://implaier.pythonanywhere.com/).
 
 ## Problem Set 8
-`Coming soon`
+
+## Mashup
+Implement a website that lets users search for articles atop a map.
+
+Official specifications for [mashup](http://docs.cs50.net/problems/mashup/mashup.html) on CS50.
+
+![Mashup](http://i.imgur.com/r7g6y7k.png)
+
+My implementation of [mashup](PSET8/mashup/).
 
 ## Final Project
 `Coming soon`
