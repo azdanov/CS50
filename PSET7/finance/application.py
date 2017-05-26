@@ -33,7 +33,7 @@ Session(app)
 # configure CS50 Library to use SQLite database
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 db_path = os.path.join(BASE_DIR, "finance.db")
-db = SQL("sqlite:///finance.db")
+db = SQL("sqlite:///{}".format(db_path))
 
 # generate timezone dictionary
 continents = get_timezone_dict()
