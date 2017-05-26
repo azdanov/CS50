@@ -4,6 +4,7 @@ from flask_session import Session
 from passlib.apps import custom_app_context as pwd_context
 from tempfile import mkdtemp
 from datetime import datetime
+import os.path
 import pytz
 
 from helpers import *
@@ -30,6 +31,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # configure CS50 Library to use SQLite database
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(BASE_DIR, "finance.db")
 db = SQL("sqlite:///finance.db")
 
 # generate timezone dictionary
