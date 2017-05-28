@@ -1,6 +1,7 @@
 import feedparser
 import urllib.parse
 
+
 def lookup(geo):
     """Looks up articles for geo."""
 
@@ -20,6 +21,7 @@ def lookup(geo):
 
     # return results
     return lookup.cache[geo]
+
 
 # initialize cache
 lookup.cache = {}

@@ -1,5 +1,6 @@
 import os
 import re
+import os.path
 from flask import Flask, jsonify, render_template, request, url_for
 from flask_jsglue import JSGlue
 
@@ -20,28 +21,46 @@ if app.config["DEBUG"]:
         return response
 
 # configure CS50 Library to use SQLite database
-db = SQL("sqlite:///mashup.db")
+base_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(base_dir, "mashup.db")
+db = SQL("sqlite:///{}".format(db_path))
+
 
 @app.route("/")
 def index():
     """Render map."""
-    if not os.environ.get("API_KEY"):
+    key = os.environ.get("API_KEY")  # Insert Google Maps key here
+    if not key:
         raise RuntimeError("API_KEY not set")
-    return render_template("index.html", key=os.environ.get("API_KEY"))
+    return render_template("index.html", key=key)
+
 
 @app.route("/articles")
 def articles():
     """Look up articles for geo."""
+    code = request.args.get("geo")
+    return jsonify(lookup(code))
 
-    # TODO
-    return jsonify([])
 
 @app.route("/search")
 def search():
     """Search for places that match query."""
 
-    # TODO
-    return jsonify([])
+    q = request.args.get("q") + "%"
+
+    results = db.execute("SELECT * FROM places "
+                         "WHERE postal_code LIKE :q "
+                         "OR place_name LIKE :q "
+                         "OR admin_name1 LIKE :q",
+                         q=q)
+
+    max_len = 10
+    # Return up to max_len from results as JSON object
+    if len(results) > max_len:
+        return jsonify([results[i] for i in range(max_len)])
+
+    return jsonify(results)
+
 
 @app.route("/update")
 def update():
@@ -66,25 +85,29 @@ def update():
     (ne_lat, ne_lng) = [float(s) for s in request.args.get("ne").split(",")]
 
     # find 10 cities within view, pseudorandomly chosen if more within view
-    if (sw_lng <= ne_lng):
-
+    if sw_lng <= ne_lng:
         # doesn't cross the antimeridian
-        rows = db.execute("""SELECT * FROM places
-            WHERE :sw_lat <= latitude AND latitude <= :ne_lat AND (:sw_lng <= longitude AND longitude <= :ne_lng)
-            GROUP BY country_code, place_name, admin_code1
-            ORDER BY RANDOM()
-            LIMIT 10""",
-            sw_lat=sw_lat, ne_lat=ne_lat, sw_lng=sw_lng, ne_lng=ne_lng)
+        rows = db.execute("SELECT * FROM places "
+                          "WHERE :sw_lat <= latitude AND "
+                          "latitude <= :ne_lat AND (:sw_lng <= longitude AND longitude <= :ne_lng) "
+                          "GROUP BY country_code, place_name, admin_code1 "
+                          "ORDER BY RANDOM() "
+                          "LIMIT 10",
+                          sw_lat=sw_lat, ne_lat=ne_lat, sw_lng=sw_lng, ne_lng=ne_lng)
 
     else:
-
         # crosses the antimeridian
-        rows = db.execute("""SELECT * FROM places
-            WHERE :sw_lat <= latitude AND latitude <= :ne_lat AND (:sw_lng <= longitude OR longitude <= :ne_lng)
-            GROUP BY country_code, place_name, admin_code1
-            ORDER BY RANDOM()
-            LIMIT 10""",
-            sw_lat=sw_lat, ne_lat=ne_lat, sw_lng=sw_lng, ne_lng=ne_lng)
+        rows = db.execute("SELECT * FROM places "
+                          "WHERE :sw_lat <= latitude AND "
+                          "latitude <= :ne_lat AND (:sw_lng <= longitude OR longitude <= :ne_lng) "
+                          "GROUP BY country_code, place_name, admin_code1 "
+                          "ORDER BY RANDOM() "
+                          "LIMIT 10",
+                          sw_lat=sw_lat, ne_lat=ne_lat, sw_lng=sw_lng, ne_lng=ne_lng)
 
     # output places as JSON
     return jsonify(rows)
+
+
+if __name__ == "__main__":
+    app.run()
