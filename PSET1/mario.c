@@ -2,8 +2,8 @@
 #include <cs50.h>
 
 int askHeight();
-void printWhitespace(int);
-void printBlock(int);
+void printWhitespace(int whitespaces);
+void printBlock(int blocks);
 
 int main(void) {
   int height = askHeight();
