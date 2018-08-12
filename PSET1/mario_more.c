@@ -1,38 +1,61 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int main(void)
-{
-    int height;
+int askHeight();
+void printInnerWhitespace();
+void printOuterWhitespace(int outerWhitespaces);
+void printBlock(int blocks);
 
-    do {
-        printf("Height: ");
-        height = get_int();
-    }
-    while (height < 0 || height > 23);
+int main(void) {
+  int height = askHeight();
 
-    int padding = height - 1, padding_middle = 2, row = 1;
+  int outerWhitespaces = height - 1;
+  int blocks = 1;
 
-    for (int i = height; i > 0; i--, padding--, row++) {
+  for (int i = height; i > 0; i--, outerWhitespaces--, blocks++) {
 
-        for (int j = padding; j > 0; j--) {
-            printf(" ");
-        }
+    printOuterWhitespace(outerWhitespaces);
 
-        for (int k = row; k > 0; k--) {
-            printf("#");
-        }
+    printBlock(blocks);
 
-        for (int l = padding_middle; l > 0; l--) {
-            printf(" ");
-        }
+    printInnerWhitespace();
 
-        for (int m = row; m > 0; m--) {
-            printf("#");
-        }
+    printBlock(blocks);
 
-        printf("\n");
-    }
+    printf("\n");
+  }
 
-    return 0;
+  return 0;
+}
+
+int askHeight() {
+  int height = -1;
+
+  printf("Height: ");
+
+  while (height < 0 || height > 23) {
+    height = get_int();
+  };
+
+  return height;
+}
+
+void printInnerWhitespace() {
+  int innerWhitespaces = 2;
+
+  for (int l = innerWhitespaces; l > 0; l--) {
+    printf(" ");
+  }
+}
+
+void printOuterWhitespace(int outerWhitespaces) {
+  for (int j = outerWhitespaces; j > 0; j--) {
+    printf(" ");
+  }
+}
+
+void printBlock(int blocks) {
+  for (int k = blocks; k > 0; k--) {
+    printf("#");
+  }
 }
