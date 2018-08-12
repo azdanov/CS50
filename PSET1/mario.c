@@ -1,31 +1,48 @@
 #include <stdio.h>
 #include <cs50.h>
 
-int main(void)
-{
-    int height;
-    
-    do {
-        printf("Height: ");
-        height = get_int();
-    }
-    while (height < 0 || height > 23);
+int askHeight();
+void printWhitespace(int);
+void printBlock(int);
 
-    int padding = height - 1;
-    int row = 2;
-    
-    for (int i = height; i > 0; i--, padding--, row++) {
+int main(void) {
+  int height = askHeight();
 
-        for (int j = padding; j > 0; j--) {
-            printf(" ");
-        }
+  int whitespaces = height - 1;
+  int blocks = 2;
 
-        for (int k = row; k > 0; k--) {
-            printf("#");
-        }
-        
-        printf("\n");
-    }
+  for (int i = height; i > 0; i--, whitespaces--, blocks++) {
 
-    return 0;
+    printWhitespace(whitespaces);
+
+    printBlock(blocks);
+
+    printf("\n");
+  }
+
+  return 0;
+}
+
+int askHeight() {
+  int height = -1;
+
+  printf("Height: ");
+
+  while (height < 0 || height > 23) {
+    height = get_int();
+  };
+
+  return height;
+}
+
+void printWhitespace(int whitespaces) {
+  for (int w = whitespaces; w > 0; w--) {
+    printf(" ");
+  }
+}
+
+void printBlock(int blocks) {
+  for (int b = blocks; b > 0; b--) {
+    printf("#");
+  }
 }
