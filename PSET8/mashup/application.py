@@ -13,12 +13,14 @@ JSGlue(app)
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
+
     @app.after_request
     def after_request(response):
         response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
         response.headers["Expires"] = 0
         response.headers["Pragma"] = "no-cache"
         return response
+
 
 # configure CS50 Library to use SQLite database
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -48,11 +50,13 @@ def search():
 
     q = request.args.get("q") + "%"
 
-    results = db.execute("SELECT * FROM places "
-                         "WHERE postal_code LIKE :q "
-                         "OR place_name LIKE :q "
-                         "OR admin_name1 LIKE :q",
-                         q=q)
+    results = db.execute(
+        "SELECT * FROM places "
+        "WHERE postal_code LIKE :q "
+        "OR place_name LIKE :q "
+        "OR admin_name1 LIKE :q",
+        q=q,
+    )
 
     max_len = 10
     # Return up to max_len from results as JSON object
@@ -87,23 +91,33 @@ def update():
     # find 10 cities within view, pseudorandomly chosen if more within view
     if sw_lng <= ne_lng:
         # doesn't cross the antimeridian
-        rows = db.execute("SELECT * FROM places "
-                          "WHERE :sw_lat <= latitude AND "
-                          "latitude <= :ne_lat AND (:sw_lng <= longitude AND longitude <= :ne_lng) "
-                          "GROUP BY country_code, place_name, admin_code1 "
-                          "ORDER BY RANDOM() "
-                          "LIMIT 10",
-                          sw_lat=sw_lat, ne_lat=ne_lat, sw_lng=sw_lng, ne_lng=ne_lng)
+        rows = db.execute(
+            "SELECT * FROM places "
+            "WHERE :sw_lat <= latitude AND "
+            "latitude <= :ne_lat AND (:sw_lng <= longitude AND longitude <= :ne_lng) "
+            "GROUP BY country_code, place_name, admin_code1 "
+            "ORDER BY RANDOM() "
+            "LIMIT 10",
+            sw_lat=sw_lat,
+            ne_lat=ne_lat,
+            sw_lng=sw_lng,
+            ne_lng=ne_lng,
+        )
 
     else:
         # crosses the antimeridian
-        rows = db.execute("SELECT * FROM places "
-                          "WHERE :sw_lat <= latitude AND "
-                          "latitude <= :ne_lat AND (:sw_lng <= longitude OR longitude <= :ne_lng) "
-                          "GROUP BY country_code, place_name, admin_code1 "
-                          "ORDER BY RANDOM() "
-                          "LIMIT 10",
-                          sw_lat=sw_lat, ne_lat=ne_lat, sw_lng=sw_lng, ne_lng=ne_lng)
+        rows = db.execute(
+            "SELECT * FROM places "
+            "WHERE :sw_lat <= latitude AND "
+            "latitude <= :ne_lat AND (:sw_lng <= longitude OR longitude <= :ne_lng) "
+            "GROUP BY country_code, place_name, admin_code1 "
+            "ORDER BY RANDOM() "
+            "LIMIT 10",
+            sw_lat=sw_lat,
+            ne_lat=ne_lat,
+            sw_lng=sw_lng,
+            ne_lng=ne_lng,
+        )
 
     # output places as JSON
     return jsonify(rows)

@@ -22,8 +22,7 @@ def get_height():
 
 def print__double_half_pyramid(height):
     for i in range(1, height + 1):
-        print("{0:>{width}}{1:2}{0:<{width}}"
-              .format("#" * i, "", width=height))
+        print("{0:>{width}}{1:2}{0:<{width}}".format("#" * i, "", width=height))
 
 
 if __name__ == "__main__":

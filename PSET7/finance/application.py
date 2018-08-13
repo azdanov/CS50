@@ -14,12 +14,14 @@ app = Flask(__name__)
 
 # ensure responses aren't cached
 if app.config["DEBUG"]:
+
     @app.after_request
     def after_request(response):
         response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
         response.headers["Expires"] = 0
         response.headers["Pragma"] = "no-cache"
         return response
+
 
 # custom filter
 app.jinja_env.filters["usd"] = usd
@@ -42,15 +44,13 @@ continents = get_timezone_dict()
 @app.route("/")
 @login_required
 def index():
-    user_cash = db.execute("SELECT cash "
-                           "FROM users "
-                           "WHERE id = :id;",
-                           id=session["user_id"])[0]["cash"]
+    user_cash = db.execute(
+        "SELECT cash " "FROM users " "WHERE id = :id;", id=session["user_id"]
+    )[0]["cash"]
     try:
-        portfolios = db.execute("SELECT * "
-                                "FROM portfolios "
-                                "WHERE id = :id;",
-                                id=session["user_id"])
+        portfolios = db.execute(
+            "SELECT * " "FROM portfolios " "WHERE id = :id;", id=session["user_id"]
+        )
         cash_from_quotes = 0
 
         for transaction in portfolios:
@@ -74,7 +74,12 @@ def index():
 
     total_cash = user_cash + cash_from_quotes
 
-    return render_template("index.html", total_cash=usd(total_cash), user_cash=usd(user_cash), portfolios=portfolios)
+    return render_template(
+        "index.html",
+        total_cash=usd(total_cash),
+        user_cash=usd(user_cash),
+        portfolios=portfolios,
+    )
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -90,10 +95,12 @@ def register():
         # get username
         try:
             # ensure uniqueness by using lower
-            existing_user = db.execute("SELECT LOWER( username ) AS 'username' "
-                                       "FROM users "
-                                       "WHERE LOWER( username ) = :username;",
-                                       username=request.form.get("username").lower())[0]['username']
+            existing_user = db.execute(
+                "SELECT LOWER( username ) AS 'username' "
+                "FROM users "
+                "WHERE LOWER( username ) = :username;",
+                username=request.form.get("username").lower(),
+            )[0]["username"]
         except:
             existing_user = None
 
@@ -102,7 +109,10 @@ def register():
             return apology("must provide username")
 
         # ensure username is not taken
-        elif existing_user is not None and existing_user == request.form.get("username").lower():
+        elif (
+            existing_user is not None
+            and existing_user == request.form.get("username").lower()
+        ):
             return apology("username already taken")
 
         # ensure password was submitted
@@ -121,20 +131,22 @@ def register():
             return apology("select a timezone")
 
         # add user to database
-        db.execute("INSERT INTO users ( 'username', 'hash', 'timezone' ) "
-                   "VALUES ( :username, :hash, :timezone );",
-                   username=request.form.get("username"),
-                   hash=pwd_context.encrypt(request.form.get("password")),
-                   timezone=request.form.get("timezone"))
+        db.execute(
+            "INSERT INTO users ( 'username', 'hash', 'timezone' ) "
+            "VALUES ( :username, :hash, :timezone );",
+            username=request.form.get("username"),
+            hash=pwd_context.encrypt(request.form.get("password")),
+            timezone=request.form.get("timezone"),
+        )
 
         # get user_id
-        user_id = db.execute("SELECT id "
-                             "FROM users "
-                             "WHERE username = :username;",
-                             username=request.form.get("username"))
+        user_id = db.execute(
+            "SELECT id " "FROM users " "WHERE username = :username;",
+            username=request.form.get("username"),
+        )
 
         # remember which user has logged in
-        session["user_id"] = user_id[0]['id']
+        session["user_id"] = user_id[0]["id"]
 
         # redirect user to home page
         flash("Registered!")
@@ -165,13 +177,15 @@ def login():
             return apology("must provide password")
 
         # query database for unique username using lower
-        rows = db.execute("SELECT * "
-                          "FROM users "
-                          "WHERE LOWER( username ) = :username;",
-                          username=request.form.get("username").lower())
+        rows = db.execute(
+            "SELECT * " "FROM users " "WHERE LOWER( username ) = :username;",
+            username=request.form.get("username").lower(),
+        )
 
         # ensure username exists and password is correct
-        if len(rows) != 1 or not pwd_context.verify(request.form.get("password"), rows[0]["hash"]):
+        if len(rows) != 1 or not pwd_context.verify(
+            request.form.get("password"), rows[0]["hash"]
+        ):
             return apology("invalid username and/or password")
 
         # remember which user has logged in
@@ -207,24 +221,27 @@ def settings():
             return apology("passwords don't match")
 
         if request.form.get("funds"):
-            db.execute("UPDATE users "
-                       "SET cash = cash + :cash "
-                       "WHERE id = :id",
-                       cash=request.form.get("funds"),
-                       id=session["user_id"])
+            db.execute(
+                "UPDATE users " "SET cash = cash + :cash " "WHERE id = :id",
+                cash=request.form.get("funds"),
+                id=session["user_id"],
+            )
         if request.form.get("timezone"):
-            db.execute("UPDATE users "
-                       "SET timezone = :timezone "
-                       "WHERE id = :id",
-                       timezone=request.form.get("timezone"),
-                       id=session["user_id"])
-        if request.form.get("passwordnew") and request.form.get("passwordnewverify") and request.form.get(
-                "passwordnew") == request.form.get("passwordnewverify"):
-            db.execute("UPDATE users "
-                       "SET hash = :hash "
-                       "WHERE id = :id",
-                       hash=pwd_context.encrypt(request.form.get("passwordnew")),
-                       id=session["user_id"])
+            db.execute(
+                "UPDATE users " "SET timezone = :timezone " "WHERE id = :id",
+                timezone=request.form.get("timezone"),
+                id=session["user_id"],
+            )
+        if (
+            request.form.get("passwordnew")
+            and request.form.get("passwordnewverify")
+            and request.form.get("passwordnew") == request.form.get("passwordnewverify")
+        ):
+            db.execute(
+                "UPDATE users " "SET hash = :hash " "WHERE id = :id",
+                hash=pwd_context.encrypt(request.form.get("passwordnew")),
+                id=session["user_id"],
+            )
         flash("Updated!")
         return redirect(url_for("index"))
 
@@ -242,8 +259,9 @@ def quote():
         if share_quote is None:
             return apology("invalid symbol")
 
-        share_quote = "A share of {} ({}) costs {}.".format(share_quote['name'], share_quote['symbol'],
-                                                            usd(share_quote['price']))
+        share_quote = "A share of {} ({}) costs {}.".format(
+            share_quote["name"], share_quote["symbol"], usd(share_quote["price"])
+        )
 
         return render_template("quoted.html", quote=share_quote)
     else:
@@ -253,15 +271,19 @@ def quote():
 @app.route("/history", methods=["GET"])
 @login_required
 def history():
-    transaction_history = db.execute("SELECT symbol, transactions.shares, date, price, timezone "
-                                     "FROM portfolios "
-                                     "INNER JOIN transactions ON transactions.id = portfolios.id "
-                                     "INNER JOIN users ON users.id = portfolios.id")
+    transaction_history = db.execute(
+        "SELECT symbol, transactions.shares, date, price, timezone "
+        "FROM portfolios "
+        "INNER JOIN transactions ON transactions.id = portfolios.id "
+        "INNER JOIN users ON users.id = portfolios.id"
+    )
 
     fmt = "%Y-%m-%d %H:%M:%S"
     for row in transaction_history:
         tz = pytz.timezone(row["timezone"])
-        local_time = pytz.utc.localize(datetime.strptime(row["date"], fmt)).astimezone(tz)
+        local_time = pytz.utc.localize(datetime.strptime(row["date"], fmt)).astimezone(
+            tz
+        )
         row["date"] = local_time.strftime(fmt)
 
     return render_template("history.html", history=transaction_history)
@@ -295,39 +317,53 @@ def buy():
             return apology("no online price for this symbol")
 
         total_price = shares * share_price
-        user_cash = db.execute("SELECT cash "
-                               "FROM users "
-                               "WHERE id = :id;",
-                               id=session["user_id"])[0]["cash"]
+        user_cash = db.execute(
+            "SELECT cash " "FROM users " "WHERE id = :id;", id=session["user_id"]
+        )[0]["cash"]
 
         if total_price <= user_cash:
             try:
-                existing = db.execute("SELECT symbol "
-                                      "FROM portfolios "
-                                      "WHERE id = :id AND symbol = :symbol;",
-                                      id=session["user_id"],
-                                      symbol=share_quote["symbol"])[0]["symbol"]
+                existing = db.execute(
+                    "SELECT symbol "
+                    "FROM portfolios "
+                    "WHERE id = :id AND symbol = :symbol;",
+                    id=session["user_id"],
+                    symbol=share_quote["symbol"],
+                )[0]["symbol"]
             except IndexError:
                 existing = False
 
             if not existing:
-                db.execute("INSERT INTO portfolios ('id', 'symbol', 'shares' ) "
-                           "VALUES ( :id, :symbol, :shares );",
-                           id=session["user_id"], symbol=share_quote["symbol"], shares=shares)
+                db.execute(
+                    "INSERT INTO portfolios ('id', 'symbol', 'shares' ) "
+                    "VALUES ( :id, :symbol, :shares );",
+                    id=session["user_id"],
+                    symbol=share_quote["symbol"],
+                    shares=shares,
+                )
             else:
-                db.execute("UPDATE portfolios "
-                           "SET shares = shares + :shares "
-                           "WHERE id = :id AND symbol = :symbol;",
-                           shares=shares, id=session["user_id"], symbol=share_quote["symbol"])
+                db.execute(
+                    "UPDATE portfolios "
+                    "SET shares = shares + :shares "
+                    "WHERE id = :id AND symbol = :symbol;",
+                    shares=shares,
+                    id=session["user_id"],
+                    symbol=share_quote["symbol"],
+                )
 
-            db.execute("UPDATE users "
-                       "SET cash = :cash "
-                       "WHERE id = :id;",
-                       cash=(user_cash - total_price), id=session["user_id"])
+            db.execute(
+                "UPDATE users " "SET cash = :cash " "WHERE id = :id;",
+                cash=(user_cash - total_price),
+                id=session["user_id"],
+            )
 
-            db.execute("INSERT INTO transactions ( 'id', 'shares', 'price' ) "
-                       "VALUES ( :id, :shares, :price );",
-                       id=session["user_id"], shares=shares, price=share_price)
+            db.execute(
+                "INSERT INTO transactions ( 'id', 'shares', 'price' ) "
+                "VALUES ( :id, :shares, :price );",
+                id=session["user_id"],
+                shares=shares,
+                price=share_price,
+            )
 
             flash("Bought!")
             return redirect(url_for("index"))
@@ -338,7 +374,7 @@ def buy():
         try:
             symbol = request.args["symbol"]
         except:
-            symbol = ''
+            symbol = ""
         return render_template("buy.html", symbol=symbol)
 
 
@@ -355,10 +391,13 @@ def sell():
 
         share_quote = lookup(request.form.get("symbol"))
         try:
-            user_shares = db.execute("SELECT shares "
-                                     "FROM portfolios "
-                                     "WHERE id = :id AND symbol = :symbol;",
-                                     id=session["user_id"], symbol=share_quote["symbol"])[0]["shares"]
+            user_shares = db.execute(
+                "SELECT shares "
+                "FROM portfolios "
+                "WHERE id = :id AND symbol = :symbol;",
+                id=session["user_id"],
+                symbol=share_quote["symbol"],
+            )[0]["shares"]
         except IndexError:
             return apology("no {} shares to sell".format(share_quote["symbol"]))
 
@@ -369,24 +408,35 @@ def sell():
 
         share_price = share_quote["price"]
 
-        db.execute("UPDATE users "
-                   "SET cash = cash + :cash "
-                   "WHERE id = :id",
-                   cash=(share_price * sell_shares), id=session["user_id"])
+        db.execute(
+            "UPDATE users " "SET cash = cash + :cash " "WHERE id = :id",
+            cash=(share_price * sell_shares),
+            id=session["user_id"],
+        )
 
         if user_shares - sell_shares > 0:
-            db.execute("UPDATE portfolios "
-                       "SET shares = shares - :shares "
-                       "WHERE id = :id AND symbol = :symbol;",
-                       shares=sell_shares, id=session["user_id"], symbol=share_quote["symbol"])
+            db.execute(
+                "UPDATE portfolios "
+                "SET shares = shares - :shares "
+                "WHERE id = :id AND symbol = :symbol;",
+                shares=sell_shares,
+                id=session["user_id"],
+                symbol=share_quote["symbol"],
+            )
         else:
-            db.execute("DELETE FROM portfolios "
-                       "WHERE id = :id AND symbol = :symbol;",
-                       id=session["user_id"], symbol=share_quote["symbol"])
+            db.execute(
+                "DELETE FROM portfolios " "WHERE id = :id AND symbol = :symbol;",
+                id=session["user_id"],
+                symbol=share_quote["symbol"],
+            )
 
-        db.execute("INSERT INTO transactions ( 'id', 'shares', 'price' ) "
-                   "VALUES ( :id, :shares, :price );",
-                   id=session["user_id"], shares=-sell_shares, price=share_price)
+        db.execute(
+            "INSERT INTO transactions ( 'id', 'shares', 'price' ) "
+            "VALUES ( :id, :shares, :price );",
+            id=session["user_id"],
+            shares=-sell_shares,
+            price=share_price,
+        )
 
         flash("Sold!")
         return redirect(url_for("index"))
@@ -394,7 +444,7 @@ def sell():
         try:
             symbol = request.args["symbol"]
         except:
-            symbol = ''
+            symbol = ""
         return render_template("sell.html", symbol=symbol)
 
 

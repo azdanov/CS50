@@ -25,17 +25,21 @@ def encrypt_vigenere(text, keyword):
     text = list(text)
     key_len = len(keyword)
     alpha_len = len(string.ascii_lowercase)
-    keyword = [ord(char.upper()) - ord('A') for char in keyword]
+    keyword = [ord(char.upper()) - ord("A") for char in keyword]
 
     for i, char in enumerate(text):
         if char.isalpha():
             if char.isupper():
-                text[i] = chr((ord(char) - ord('A') + keyword[key_pos]) % alpha_len + ord('A'))
+                text[i] = chr(
+                    (ord(char) - ord("A") + keyword[key_pos]) % alpha_len + ord("A")
+                )
             else:
-                text[i] = chr((ord(char) - ord('a') + keyword[key_pos]) % alpha_len + ord('a'))
+                text[i] = chr(
+                    (ord(char) - ord("a") + keyword[key_pos]) % alpha_len + ord("a")
+                )
             key_pos = (key_pos + 1) % key_len
 
-    text = ''.join(text)
+    text = "".join(text)
     return text
 
 

@@ -26,11 +26,11 @@ def encrypt_caesar(text, key):
     for i, char in enumerate(text):
         if char.isalpha():
             if char.isupper():
-                text[i] = chr((ord(char) - ord('A') + key) % alpha_len + ord('A'))
+                text[i] = chr((ord(char) - ord("A") + key) % alpha_len + ord("A"))
             else:
-                text[i] = chr((ord(char) - ord('a') + key) % alpha_len + ord('a'))
+                text[i] = chr((ord(char) - ord("a") + key) % alpha_len + ord("a"))
 
-    text = ''.join(text)
+    text = "".join(text)
     return text
 
 

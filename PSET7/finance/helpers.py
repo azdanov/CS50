@@ -17,8 +17,16 @@ def apology(top="", bottom=""):
 
         https://github.com/jacebrowning/memegen#special-characters
         """
-        for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
-                         ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
+        for old, new in [
+            ("-", "--"),
+            (" ", "-"),
+            ("_", "__"),
+            ("?", "~q"),
+            ("%", "~p"),
+            ("#", "~h"),
+            ("/", "~s"),
+            ('"', "''"),
+        ]:
             s = s.replace(old, new)
         return s
 
@@ -55,7 +63,9 @@ def lookup(symbol):
     # query Yahoo for quote
     # http://stackoverflow.com/a/21351911
     try:
-        url = "http://download.finance.yahoo.com/d/quotes.csv?f=snl1&s={}".format(symbol)
+        url = "http://download.finance.yahoo.com/d/quotes.csv?f=snl1&s={}".format(
+            symbol
+        )
         webpage = urllib.request.urlopen(url)
         datareader = csv.reader(webpage.read().decode("utf-8").splitlines())
         row = next(datareader)
@@ -69,11 +79,7 @@ def lookup(symbol):
         return None
 
     # return stock's name (as a str), price (as a float), and (uppercased) symbol (as a str)
-    return {
-        "name":    row[1],
-        "price":   price,
-        "symbol":  row[0].upper()
-    }
+    return {"name": row[1], "price": price, "symbol": row[0].upper()}
 
 
 def usd(value):
@@ -97,5 +103,7 @@ def get_timezone_dict():
                 ct = {"GMT": timezone}
             continents[continent] = ct
     for continent in continents:
-        continents[continent] = collections.OrderedDict(sorted(continents[continent].items()))
+        continents[continent] = collections.OrderedDict(
+            sorted(continents[continent].items())
+        )
     return collections.OrderedDict(sorted(continents.items()))

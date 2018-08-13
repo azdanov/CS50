@@ -1,5 +1,8 @@
 /* allow map to fill viewport */
-html, body, #map-canvas, .container-fluid {
+html,
+body,
+#map-canvas,
+.container-fluid {
   /* height of these elements */
   height: 100%;
 
