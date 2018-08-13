@@ -1,61 +1,55 @@
-# CS50 -  2017 - Problem Sets
-[![](http://i.imgur.com/DN8KfOe.jpg "This is CS50")](https://cs50.harvard.edu)
+# CS50 - 2017 - Problem Sets
 
+[![CS50](http://i.imgur.com/DN8KfOe.jpg "This is CS50")](https://cs50.harvard.edu)
 
 ## Table of Content
 
-*  **[Intro](#intro)**
-*  **[Dependencies](#dependencies)**
-*  **[Problem Set 0](#problem-set-0)**
-    *   **[Scratch](#scratch)**
-    
-*  **[Problem Set 1](#problem-set-1)**
-    *   **[Hello](#hello)**
-    *   **[Water](#water)**
-    *   **[Mario, less comfortable](#mario-less-comfortable)**
-    *   **[Mario, more comfortable](#mario-more-comfortable)**
-    *   **[Greedy, less comfortable](#greedy-less-comfortable)**
-    *   **[Credit, more comfortable](#credit-more-comfortable)**
-
-*  **[Problem Set 2](#problem-set-2)**
-    *   **[Initials, less comfortable](#initials-less-comfortable)**
-    *   **[Initials, more comfortable](#initials-more-comfortable)**
-    *   **[Caesar, less comfortable](#caesar-less-comfortable)**
-    *   **[Vigenere, less comfortable](#vigenere-less-comfortable)**
-    *   **[Crack, more comfortable](#crack-more-comfortable)**
-
-*  **[Problem Set 3](#problem-set-3)**
-    *   **[Find, less comfortable](#find-less-comfortable)**
-    *   **[Find, more comfortable](#find-more-comfortable)**
-    *   **[Game of Fifteen](#game-of-fifteen)**
-
-*  **[Problem Set 4](#problem-set-4)**
-    *   **[Whodunit](#whodunit)**
-    *   **[Resize, less comfortable](#resize-less-comfortable)**
-    *   **[Resize, more comfortable](#resize-more-comfortable)**
-    *   **[Recover](#recover)**
-
-*  **[Problem Set 5](#problem-set-5)**
-    *   **[Speller](#speller)**
-
-*  **[Problem Set 6](#problem-set-6)**
-    *   **[Mario](#mario-python)**
-    *   **[Greedy](#greedy-less-comfortable-python)**
-    *   **[Credit](#credit-more-comfortable-python)**
-    *   **[Caesar](#caesar-less-comfortable-python)**
-    *   **[Vigenere](#vigenere-less-comfortable-python)**
-    *   **[Crack](#crack-more-comfortable-python)**
-    *   **[Sentiments](#sentiments)**
-
-*  **[Problem Set 7](#problem-set-7)**
-    *   **[Finance](#finance)**
-
-*  **[Problem Set 8](#problem-set-8)**
-    *   **[Mashup](#mashup)**
-
-*  **[Final Project](#final-project)**
+- [CS50 - 2017 - Problem Sets](#cs50---2017---problem-sets)
+    - [Table of Content](#table-of-content)
+    - [Intro](#intro)
+    - [Dependencies](#dependencies)
+    - [Problem Set 0](#problem-set-0)
+        - [Scratch](#scratch)
+    - [Problem Set 1](#problem-set-1)
+        - [Hello](#hello)
+        - [Water](#water)
+        - [Mario, less comfortable](#mario-less-comfortable)
+        - [Mario, more comfortable](#mario-more-comfortable)
+        - [Greedy, less comfortable](#greedy-less-comfortable)
+        - [Credit, more comfortable](#credit-more-comfortable)
+    - [Problem Set 2](#problem-set-2)
+        - [Initials, less comfortable](#initials-less-comfortable)
+        - [Initials, more comfortable](#initials-more-comfortable)
+        - [Caesar, less comfortable](#caesar-less-comfortable)
+        - [Vigenere, less comfortable](#vigenere-less-comfortable)
+        - [Crack, more comfortable](#crack-more-comfortable)
+    - [Problem Set 3](#problem-set-3)
+        - [Find, less comfortable](#find-less-comfortable)
+        - [Find, more comfortable](#find-more-comfortable)
+        - [Game of Fifteen](#game-of-fifteen)
+    - [Problem Set 4](#problem-set-4)
+        - [Whodunit](#whodunit)
+        - [Resize, less comfortable](#resize-less-comfortable)
+        - [Resize, more comfortable](#resize-more-comfortable)
+        - [Recover](#recover)
+    - [Problem Set 5](#problem-set-5)
+        - [Speller](#speller)
+    - [Problem Set 6](#problem-set-6)
+        - [Mario python](#mario-python)
+        - [Greedy, less comfortable python](#greedy-less-comfortable-python)
+        - [Credit, more comfortable python](#credit-more-comfortable-python)
+        - [Caesar, less comfortable python](#caesar-less-comfortable-python)
+        - [Vigenere, less comfortable python](#vigenere-less-comfortable-python)
+        - [Crack, more comfortable python](#crack-more-comfortable-python)
+        - [Sentiments](#sentiments)
+    - [Problem Set 7](#problem-set-7)
+        - [Finance](#finance)
+    - [Problem Set 8](#problem-set-8)
+        - [Mashup](#mashup)
+    - [License](#license)
 
 ## Intro
+
 This is a work in progress repository containing solutions for CS50 problem sets.
 
 I mainly use this as personal training grounds to try out different things and learn while doing it.
@@ -74,7 +68,7 @@ Feel free to contribute in any way you see fit, all feedback is welcome.
 
 As per [specifications](http://docs.cs50.net/2017/x/psets/0/pset0.html#tl-dr) make a program in [scratch](https://scratch.mit.edu):
 
-![](https://cdn2.scratch.mit.edu/get_image/project/104489209_282x210.png)
+![Scratch](https://cdn2.scratch.mit.edu/get_image/project/104489209_282x210.png)
 
 My implementation of a simple [game](https://scratch.mit.edu/projects/104489209/).
 
@@ -84,8 +78,9 @@ My implementation of a simple [game](https://scratch.mit.edu/projects/104489209/
 
 A program that prints out a simple greeting to the user:
 
-```
-$ ./hello
+```text
+./hello
+
 Hello, world!
 ```
 
@@ -93,18 +88,20 @@ Official specifications for [hello](http://docs.cs50.net/problems/hello/hello.ht
 
 My implementation of [hello](PSET1/hello.c).
 
-
 ### Water
 
 A program that reports a user’s water usage, converting minutes spent in the shower to bottles of drinking water:
 
-```
-$ ./water
+```text
+./water
+
 Minutes: 1
 Bottles: 12
 ```
-```
-$ ./water
+
+```text
+./water
+
 Minutes: 10
 Bottles: 120
 ```
@@ -117,8 +114,9 @@ My implementation of [water](PSET1/water.c).
 
 A program that prints out a half-pyramid of a specified height:
 
-```
-$ ./mario
+```text
+./mario
+
 Height: 5
     ##
    ###
@@ -127,8 +125,9 @@ Height: 5
 ######
 ```
 
-```
-$ ./mario
+```text
+./mario
+
 Height: 3
   ##
  ###
@@ -143,8 +142,9 @@ My implementation of [mario](PSET1/mario.c).
 
 A program that prints out a double half-pyramid of a specified height:
 
-```
-$ ./mario
+```text
+./mario
+
 Height: 4
    #  #
   ##  ##
@@ -154,15 +154,15 @@ Height: 4
 
 Official specifications for [mario](http://docs.cs50.net/problems/mario/more/mario.html) on CS50.
 
-
 My implementation of [mario](PSET1/mario_more.c).
 
 ### Greedy, less comfortable
 
 A program that calculates the minimum number of coins required to give a user change:
 
-```
-$ ./greedy
+```text
+./greedy
+
 O hai! How much change is owed?
 0.41
 4
@@ -176,8 +176,9 @@ My implementation of [greedy](PSET1/greedy.c).
 
 A program that determines whether a provided credit card number is valid according to [Luhn’s algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm):
 
-```
-$ ./credit
+```text
+./credit
+
 Number: 378282246310005
 AMEX
 ```
@@ -186,15 +187,15 @@ Official specifications for [credit](http://docs.cs50.net/problems/credit/credit
 
 My implementation of [credit](PSET1/credit.c).
 
-
 ## Problem Set 2
 
 ### Initials, less comfortable
 
 A program that, given a person’s name, prints a person’s initials:
 
-```
-$ ./initials
+```text
+./initials
+
 Regulus Arcturus Black
 RAB
 ```
@@ -207,8 +208,9 @@ My implementation of [initials](PSET2/initials.c).
 
 A program that, given a person’s name, prints a person’s initials, while ignoring additional whitespace:
 
-```
-$ ./initials
+```text
+./initials
+
   Regulus    Arcturus   Black
 RAB
 ```
@@ -221,8 +223,9 @@ My implementation of [initials](PSET2/initials_more.c).
 
 A program that encrypts messages using Caesar’s cipher:
 
-```
-$ ./caesar 13
+```text
+./caesar 13
+
 plaintext:  HELLO
 ciphertext: URYYB
 ```
@@ -235,8 +238,9 @@ My implementation of [caesar](PSET2/caesar.c).
 
 A program that encrypts messages using Vigenère’s cipher:
 
-```
-$ ./vigenere ABC
+```text
+./vigenere ABC
+
 plaintext:  HELLO
 ciphertext: HFNLP
 ```
@@ -249,8 +253,9 @@ My implementation of [vigenere](PSET2/vigenere.c).
 
 A program that cracks passwords:
 
-```
-$ ./crack 50fkUxYHbnXGw
+```text
+./crack 50fkUxYHbnXGw
+
 rofl
 ```
 
@@ -264,8 +269,9 @@ My implementation of [crack](PSET2/crack.c).
 
 A program that finds a number among numbers:
 
-```
-$ ./generate 1000 | ./find 42
+```text
+./generate 1000 | ./find 42
+
 Didn't find needle in haystack.
 ```
 
@@ -277,8 +283,9 @@ My implementation of [find](PSET3/find_less/).
 
 A program that finds a number among numbers:
 
-```
-$ ./generate 1000 | ./find 42
+```text
+./generate 1000 | ./find 42
+
 Didn't find needle in haystack.
 ```
 
@@ -290,8 +297,9 @@ My implementation of [find](PSET3/find_more).
 
 Game of Fifteen:
 
-```
-$ ./fifteen 3
+```text
+./fifteen 3
+
 WELCOME TO GAME OF FIFTEEN
 
 8  7  6
@@ -313,56 +321,53 @@ My implementation of [fifteen](PSET3/fifteen).
 
 A program that reveals a reveals a hidden message in a BMP:
 
-```
-$ ./whodunit clue.bmp verdict.bmp
+```text
+./whodunit clue.bmp verdict.bmp
 ```
 
 Official specifications for [whodunit](http://docs.cs50.net/problems/whodunit/whodunit.html) on CS50.
 
 My implementation of [whodunit](PSET4/bmp/whodunit.c).
 
-
 ### Resize, less comfortable
 
 Implement a program that resizes BMPs:
 
-```
-$ ./resize 4 small.bmp large.bmp
+```text
+./resize 4 small.bmp large.bmp
 ```
 
 Official specifications for [Resize](http://docs.cs50.net/problems/resize/less/resize.html) on CS50.
 
 My implementation of [Resize](PSET4/bmp/resize_less.c).
 
-
 ### Resize, more comfortable
 
 Implement a program that resizes BMPs:
 
+```text
+./resize 4 small.bmp large.bmp
 ```
-$ ./resize 4 small.bmp large.bmp
-```
-```
-$ ./resize .25 large.bmp small.bmp
+
+```text
+./resize .25 large.bmp small.bmp
 ```
 
 Official specifications for [Resize](http://docs.cs50.net/problems/resize/more/resize.html) on CS50.
 
 My implementation of [~~Resize~~](PSET4/bmp/resize_more.c).
 
-
 ### Recover
 
 Implement a program that recovers JPEGs from a forensic image:
 
-```
-$ ./recover card.raw
+```text
+./recover card.raw
 ```
 
 Official specifications for [Recover](http://docs.cs50.net/problems/recover/recover.html) on CS50.
 
 My implementation of [Recover](PSET4/jpg/recover.c).
-
 
 ## Problem Set 5
 
@@ -370,8 +375,8 @@ My implementation of [Recover](PSET4/jpg/recover.c).
 
 Implement a program that spell-checks a file:
 
-```
-$ ./speller texts/austinpowers.txt
+```text
+./speller texts/austinpowers.txt
 
 MISSPELLED WORDS
 [...]
@@ -379,7 +384,7 @@ Bigglesworth
 [...]
 Virtucon
 [...]
-friggin'
+friggin
 [...]
 trippy
 [...]
@@ -393,6 +398,7 @@ TIME IN size:
 TIME IN unload:
 TIME IN TOTAL:
 ```
+
 Official specifications for [Speller](http://docs.cs50.net/problems/recover/recover.html) on CS50.
 
 My old implementation of [Speller](PSET5/old).
@@ -434,45 +440,50 @@ My implementation of [Crack](PSET6/crack.py) on python.
 
 Official specifications for [Sentiments](http://docs.cs50.net/problems/sentiments/sentiments.html)
 
-1) Implement a program that categorizes a word as positive or negative.
+1. Implement a program that categorizes a word as positive or negative.
 
-```
-$ ./smile love
-:)
-$ ./smile hate
-:(
-$ ./smile Stanford
-:|
-```
+    ```text
+    ./smile love
 
-My implementation of [smile](PSET6/sentiments/smile) and [analyzer](PSET6/sentiments/analyzer.py)
+    :)
 
-<br>
+    ./smile hate
 
-2) Implement a program that categorizes a user’s tweets as positive or negative.
+    :(
 
-```
-$ ./tweets @cs50
- 0 hello, @world
- 1 I love you, @world
--1 I hate you, @world
-...
-```
+    ./smile Stanford
 
-My implementation of [tweets](PSET6/sentiments/tweets) and [analyzer](PSET6/sentiments/analyzer.py)
+    :|
+    ```
 
-<br>
+    My implementation of [smile](PSET6/sentiments/smile) and [analyzer](PSET6/sentiments/analyzer.py)
 
-3) Implement a website that generates a pie chart categorizing a user’s tweets.
+    <br>
 
-![Tweet pie](http://i.imgur.com/twGxbdI.png)
+2. Implement a program that categorizes a user’s tweets as positive or negative.
 
-My implementation of [application](PSET6/sentiments/application.py) and [helpers](PSET6/sentiments/helpers.py)
+    ```text
+    ./tweets @cs50
 
+    0 hello, @world
+    1 I love you, @world
+    -1 I hate you, @world
+    ```
+
+    My implementation of [tweets](PSET6/sentiments/tweets) and [analyzer](PSET6/sentiments/analyzer.py)
+
+    <br>
+
+3. Implement a website that generates a pie chart categorizing a user’s tweets.
+
+    ![Tweet pie](http://i.imgur.com/twGxbdI.png)
+
+    My implementation of [application](PSET6/sentiments/application.py) and [helpers](PSET6/sentiments/helpers.py)
 
 ## Problem Set 7
 
 ### Finance
+
 Implement a website via which users can "buy" and "sell" stocks.
 
 Official specifications for [finance](http://docs.cs50.net/problems/finance/finance.html) on CS50.
@@ -483,7 +494,8 @@ My implementation of [finance](PSET7/finance/) and [online website](http://impla
 
 ## Problem Set 8
 
-## Mashup
+### Mashup
+
 Implement a website that lets users search for articles atop a map.
 
 Official specifications for [mashup](http://docs.cs50.net/problems/mashup/mashup.html) on CS50.
@@ -492,9 +504,6 @@ Official specifications for [mashup](http://docs.cs50.net/problems/mashup/mashup
 
 My implementation of [mashup](PSET8/mashup/) and [online website](http://implaiercs50.pythonanywhere.com/).
 
-## Final Project
-`Coming soon`
-
 ## License
 
-This project is Unlicensed - see the [LICENSE.md](LICENSE.md) file for details
+[MIT](LICENSE.md)
