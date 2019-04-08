@@ -1,6 +1,6 @@
 # CS50 - 2017 - Problem Sets
 
-[![CS50](http://i.imgur.com/DN8KfOe.jpg "This is CS50")](https://cs50.harvard.edu)
+[![CS50](http://i.imgur.com/DN8KfOe.jpg "This is CS50")](https://www.edx.org/course/cs50s-introduction-to-computer-science)
 
 ## Table of Content
 
